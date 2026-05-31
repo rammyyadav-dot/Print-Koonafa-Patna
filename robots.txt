@@ -1,0 +1,12 @@
+# Koonafa Print Studio - Robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /my-account/
+Disallow: /checkout/
+
+# Sitemaps
+Sitemap: https://print.koonafa.com/sitemap.xml
+
+# Crawl-delay (be nice to servers)
+Crawl-delay: 1
