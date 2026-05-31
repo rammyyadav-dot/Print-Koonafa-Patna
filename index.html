@@ -212,6 +212,495 @@ img{loading:lazy}
 .price-table{background:#fff;border-radius:16px;border:1px solid #E2E8F0;padding:8px 16px}
 /* ── CTA section gradient animation ── */
 @keyframes cta-grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* ── HD Image hover effects ── */
+.cat-card:hover img{transform:scale(1.06)}
+.cat-card img{transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+/* ── Image lazy load fade-in ── */
+img[loading="lazy"]{opacity:0;transition:opacity .4s ease}
+img[loading="lazy"].loaded{opacity:1}
+/* ── Prevent layout shift ── */
+.cat-card [style*="height:200px"] img{min-height:200px}
+
+/* ── Reviewer avatar images ── */
+.review-card img{border-radius:50%}
+/* ── Industry panel banner ── */
+.ind-panel [style*="height:120px"] img{transition:transform .6s ease}
+.ind-panel:hover [style*="height:120px"] img{transform:scale(1.03)}
+/* ── Hero bg image ── */
+section img[style*="opacity:0.08"]{pointer-events:none}
+/* ── Category card image container ── */
+.cat-card [style*="height:200px"]{background:#F8FAFC}
+
+/* ═══ INTERACTION SYSTEM ═══ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   KOONAFA PRINT STUDIO — INTERACTION SYSTEM v2
+   Hover Effects · Scroll Animations · Micro-interactions · Parallax
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── CSS CUSTOM PROPERTIES ─────────────────────────────────────────── */
+:root {
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --dur-fast: 180ms;
+  --dur-med: 320ms;
+  --dur-slow: 560ms;
+  --shadow-glow-blue: 0 0 0 3px rgba(0,115,177,.15), 0 8px 32px rgba(0,115,177,.2);
+  --shadow-glow-gold: 0 0 0 3px rgba(201,168,76,.2), 0 8px 32px rgba(201,168,76,.25);
+  --shadow-lift: 0 20px 60px rgba(10,22,40,.18), 0 4px 16px rgba(0,0,0,.06);
+}
+
+/* ── SCROLL-REVEAL BASE ────────────────────────────────────────────── */
+.sr { opacity: 0; will-change: opacity, transform; }
+.sr.sr--fade-up    { transform: translateY(40px); }
+.sr.sr--fade-left  { transform: translateX(-40px); }
+.sr.sr--fade-right { transform: translateX(40px); }
+.sr.sr--scale      { transform: scale(0.92); }
+.sr.sr--zoom       { transform: scale(0.85) translateY(20px); }
+.sr.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-slow) var(--ease-out-expo),
+              transform var(--dur-slow) var(--ease-out-expo);
+}
+.sr.sr--d1.in { transition-delay: 80ms; }
+.sr.sr--d2.in { transition-delay: 160ms; }
+.sr.sr--d3.in { transition-delay: 240ms; }
+.sr.sr--d4.in { transition-delay: 320ms; }
+.sr.sr--d5.in { transition-delay: 400ms; }
+.sr.sr--d6.in { transition-delay: 480ms; }
+
+/* ── BUTTON GLOW / LIFT ────────────────────────────────────────────── */
+.btn-primary, .btn-gold, a[style*="background:#25D366"],
+a[style*="background:var(--co)"], a[style*="background:#0073B1"] {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur-fast) var(--ease-spring),
+              box-shadow var(--dur-med) ease,
+              background var(--dur-fast) ease !important;
+}
+/* Ripple layer */
+.btn-primary::after, .btn-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%),
+    rgba(255,255,255,.22) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity var(--dur-fast) ease;
+  pointer-events: none;
+}
+.btn-primary:hover::after, .btn-gold:hover::after { opacity: 1; }
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: var(--shadow-glow-blue) !important;
+}
+.btn-gold:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: var(--shadow-glow-gold) !important;
+}
+.btn-primary:active, .btn-gold:active {
+  transform: translateY(0) scale(0.98) !important;
+  transition-duration: 80ms !important;
+}
+
+/* Nav CTA buttons */
+a[href*="wa.me"]:not(.wa-float) {
+  position: relative;
+  transition: transform var(--dur-fast) var(--ease-spring),
+              box-shadow var(--dur-med) ease,
+              filter var(--dur-fast) ease !important;
+}
+a[href*="wa.me"]:not(.wa-float):hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 6px 20px rgba(37,211,102,.35) !important;
+  filter: brightness(1.05);
+}
+
+/* ── CATEGORY CARDS — full interaction system ──────────────────────── */
+.cat-card {
+  transition:
+    transform var(--dur-med) var(--ease-out-expo),
+    box-shadow var(--dur-med) ease,
+    border-color var(--dur-fast) ease !important;
+  transform-origin: center bottom;
+  will-change: transform, box-shadow;
+}
+.cat-card:hover {
+  transform: translateY(-6px) scale(1.015) !important;
+  box-shadow: 0 24px 60px rgba(0,115,177,.16), 0 4px 16px rgba(0,0,0,.06) !important;
+  border-color: rgba(0,115,177,.2) !important;
+}
+.cat-card:active {
+  transform: translateY(-2px) scale(1.005) !important;
+  transition-duration: 100ms !important;
+}
+/* Image zoom on card hover */
+.cat-card:hover [style*="height:200px"] img,
+.cat-card:hover [style*="height:200px"] img {
+  transform: scale(1.08) !important;
+}
+[style*="height:200px"] img {
+  transition: transform 600ms var(--ease-in-out-quart) !important;
+}
+/* Reveal price overlay on hover */
+.cat-card .cat-price-reveal {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,115,177,.85) 0%, transparent 100%);
+  color: #fff;
+  padding: 20px 16px 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  transform: translateY(100%);
+  transition: transform var(--dur-med) var(--ease-out-expo);
+  pointer-events: none;
+}
+.cat-card:hover .cat-price-reveal { transform: translateY(0); }
+
+/* ── REVIEW CARDS ──────────────────────────────────────────────────── */
+.review-card {
+  transition:
+    transform var(--dur-med) var(--ease-out-expo),
+    box-shadow var(--dur-med) ease,
+    border-color var(--dur-fast) ease !important;
+  cursor: default;
+}
+.review-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 48px rgba(0,115,177,.12) !important;
+  border-color: #bfdbfe !important;
+}
+.review-card:hover img {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 4px 12px rgba(0,115,177,.2);
+}
+.review-card img {
+  transition: transform var(--dur-med) var(--ease-spring),
+              box-shadow var(--dur-med) ease !important;
+}
+
+/* ── STAT NUMBERS in hero — hover individual stat ──────────────────── */
+.hero-stat {
+  cursor: default;
+  transition: transform var(--dur-fast) var(--ease-spring);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-stat:hover { transform: scale(1.08) translateY(-2px); }
+.hero-stat:hover .stat-val { color: #fff !important; text-shadow: 0 0 20px rgba(201,168,76,.5); }
+
+/* ── TRUST BAR ITEMS ────────────────────────────────────────────────── */
+.trust-item {
+  transition: transform var(--dur-fast) var(--ease-spring),
+              background var(--dur-fast) ease;
+  cursor: default;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.trust-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #fff !important;
+  box-shadow: 0 8px 24px rgba(0,115,177,.1);
+}
+
+/* ── INDUSTRY TABS ──────────────────────────────────────────────────── */
+.ind-tab {
+  transition:
+    background var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    transform var(--dur-fast) var(--ease-spring),
+    box-shadow var(--dur-fast) ease,
+    border-color var(--dur-fast) ease !important;
+}
+.ind-tab:hover:not(.active) {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 12px rgba(0,115,177,.15);
+}
+.ind-tab.active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,115,177,.25);
+}
+
+/* ── STEP NUMBERS ───────────────────────────────────────────────────── */
+.step-item {
+  transition: transform var(--dur-med) var(--ease-spring);
+  cursor: default;
+}
+.step-item:hover {
+  transform: translateY(-6px);
+}
+.step-item:hover .step-num {
+  background: linear-gradient(135deg, #0073B1, #C9A84C) !important;
+  box-shadow: 0 0 0 3px rgba(201,168,76,.3), 0 8px 24px rgba(0,115,177,.3) !important;
+  animation: none !important;
+}
+
+/* ── PRICE ROWS ─────────────────────────────────────────────────────── */
+.price-row {
+  transition: background var(--dur-fast) ease,
+              padding var(--dur-fast) ease,
+              transform var(--dur-fast) ease !important;
+  cursor: default;
+  border-radius: 8px;
+}
+.price-row:hover {
+  background: linear-gradient(90deg, rgba(0,115,177,.04), rgba(201,168,76,.04)) !important;
+  transform: translateX(4px);
+  padding-left: 8px !important;
+}
+
+/* ── LOCALITY TAGS ──────────────────────────────────────────────────── */
+.loc-tag {
+  transition:
+    transform var(--dur-fast) var(--ease-spring),
+    border-color var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease !important;
+}
+.loc-tag:hover {
+  transform: translateY(-3px) scale(1.04) !important;
+  box-shadow: 0 4px 12px rgba(0,115,177,.12) !important;
+}
+
+/* ── FAQ ITEMS ──────────────────────────────────────────────────────── */
+.faq-q {
+  transition: color var(--dur-fast) ease,
+              padding-left var(--dur-fast) ease !important;
+}
+.faq-q:hover {
+  color: #0073B1 !important;
+  padding-left: 8px !important;
+}
+.faq-icon {
+  transition: transform var(--dur-fast) var(--ease-spring),
+              background var(--dur-fast) ease !important;
+}
+.faq-q:hover .faq-icon {
+  transform: scale(1.15) rotate(5deg);
+  background: rgba(0,115,177,.18) !important;
+}
+
+/* ── NAV LOGO ────────────────────────────────────────────────────────── */
+nav a[href="index.html"]:first-child {
+  transition: transform var(--dur-fast) var(--ease-spring) !important;
+}
+nav a[href="index.html"]:first-child:hover {
+  transform: scale(1.04) !important;
+}
+nav a[href="index.html"]:first-child > div:first-child {
+  transition: box-shadow var(--dur-med) ease !important;
+}
+nav a[href="index.html"]:first-child:hover > div:first-child {
+  box-shadow: 0 0 0 3px rgba(0,115,177,.2), 0 4px 16px rgba(0,115,177,.2) !important;
+}
+
+/* ── HERO MINI-CARDS ────────────────────────────────────────────────── */
+a[style*="rgba(255,255,255,.07)"],
+a[style*="rgba(255,255,255,0.07)"] {
+  transition:
+    background var(--dur-fast) ease,
+    transform var(--dur-fast) var(--ease-spring),
+    border-color var(--dur-fast) ease !important;
+}
+a[style*="rgba(255,255,255,.07)"]:hover,
+a[style*="rgba(255,255,255,0.07)"]:hover {
+  background: rgba(255,255,255,.14) !important;
+  transform: translateY(-3px) scale(1.03) !important;
+  border-color: rgba(201,168,76,.4) !important;
+}
+a[style*="rgba(255,255,255,.07)"]:hover img {
+  transform: scale(1.06) !important;
+}
+
+/* ── FOOTER LINKS ────────────────────────────────────────────────────── */
+footer a {
+  transition: color var(--dur-fast) ease, letter-spacing var(--dur-fast) ease !important;
+  display: inline-block;
+}
+footer a:hover {
+  color: #C9A84C !important;
+  letter-spacing: .02em;
+}
+
+/* ── URGENCY BAR ─────────────────────────────────────────────────────── */
+.urgency-bar { cursor: default; transition: background var(--dur-fast) ease; }
+.urgency-bar:hover { background: linear-gradient(90deg, #991b1b, #dc2626, #991b1b) !important; }
+
+/* ── SECTION LABEL ────────────────────────────────────────────────────── */
+.section-label {
+  transition: letter-spacing var(--dur-med) ease, opacity var(--dur-fast) ease;
+}
+.section-label:hover { letter-spacing: .2em; }
+
+/* ── PARALLAX HELPERS ────────────────────────────────────────────────── */
+.parallax-slow { will-change: transform; }
+.parallax-med  { will-change: transform; }
+.parallax-fast { will-change: transform; }
+
+/* ── CURSOR GLOW ─────────────────────────────────────────────────────── */
+#cursor-glow {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,115,177,.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  transition: opacity .3s ease;
+  mix-blend-mode: multiply;
+}
+
+/* ── HORIZONTAL SCROLL STRIP ─────────────────────────────────────────── */
+.h-scroll-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 12px 4px 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.h-scroll-track::-webkit-scrollbar { display: none; }
+.h-scroll-track:active { cursor: grabbing; }
+.h-scroll-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 16px;
+  border: 1.5px solid #E2E8F0;
+  padding: 20px;
+  transition: transform var(--dur-fast) var(--ease-spring),
+              box-shadow var(--dur-fast) ease,
+              border-color var(--dur-fast) ease;
+}
+.h-scroll-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0,115,177,.12);
+  border-color: rgba(0,115,177,.25);
+}
+
+/* ── REVEAL OVERLAY on images ────────────────────────────────────────── */
+.img-reveal {
+  position: relative;
+  overflow: hidden;
+}
+.img-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,115,177,.5), rgba(201,168,76,.3));
+  opacity: 0;
+  transition: opacity var(--dur-med) ease;
+  pointer-events: none;
+}
+.img-reveal:hover::after { opacity: 1; }
+.img-reveal .img-reveal-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .08em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur-med) ease, transform var(--dur-med) var(--ease-out-expo);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+.img-reveal:hover .img-reveal-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── MAGNETIC BUTTONS ─────────────────────────────────────────────────── */
+.btn-magnetic {
+  transition: transform var(--dur-fast) var(--ease-spring) !important;
+}
+
+/* ── BADGE PING ───────────────────────────────────────────────────────── */
+@keyframes badge-ping {
+  0%   { transform: scale(1); opacity: 1; }
+  70%  { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.badge-ping {
+  position: relative;
+  display: inline-block;
+}
+.badge-ping::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(34,197,94,.4);
+  animation: badge-ping 2s ease-out infinite;
+}
+
+/* ── TICKER ───────────────────────────────────────────────────────────── */
+.ticker-inner { cursor: pointer; }
+.ticker-dot {
+  transition: color var(--dur-fast) ease, transform var(--dur-fast) ease;
+  display: inline-block;
+}
+.ticker-item { transition: color var(--dur-fast) ease; }
+.ticker-inner:hover .ticker-item { color: #fff; }
+.ticker-inner:hover .ticker-dot { color: #C9A84C; transform: rotate(45deg); }
+
+/* ── SCROLL PROGRESS BAR ──────────────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0073B1, #C9A84C);
+  z-index: 99999;
+  width: 0%;
+  transition: width .1s linear;
+  transform-origin: left;
+}
+
+/* ── SECTION ENTRANCE VARIANTS ────────────────────────────────────────── */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s var(--ease-out-expo), transform .7s var(--ease-out-expo);
+}
+.reveal-section.in { opacity: 1; transform: none; }
+
+/* ── HERO FLOATING ELEMENTS ───────────────────────────────────────────── */
+@keyframes float-y {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes float-y-slow {
+  0%,100% { transform: translateY(0px) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(3deg); }
+}
+.hero-float-1 { animation: float-y 4s ease-in-out infinite; }
+.hero-float-2 { animation: float-y 5s ease-in-out 0.8s infinite; }
+.hero-float-3 { animation: float-y 6s ease-in-out 1.6s infinite; }
+.hero-float-4 { animation: float-y-slow 7s ease-in-out infinite; }
+
+/* ── REDUCE MOTION ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
 </style>
 </head>
 <body>
@@ -265,6 +754,9 @@ img{loading:lazy}
 
 <!-- HERO -->
 <section style="background:linear-gradient(135deg,#0A1628 0%,#003a63 55%,#004d80 100%);padding:80px 0 72px;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;overflow:hidden;z-index:0">
+    <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=1600&h=900&fit=crop&q=60&auto=format" alt="Koonafa Print Studio Patna — premium printing press" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;opacity:0.08;mix-blend-mode:luminosity">
+  </div>
   <div style="position:absolute;inset:0;opacity:.035;background-image:radial-gradient(circle at 1px 1px, #fff 1px, transparent 0);background-size:32px 32px"></div>
   <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:rgba(201,168,76,.07);filter:blur(80px)"></div>
   <div class="mx" style="position:relative;z-index:1">
@@ -291,76 +783,28 @@ img{loading:lazy}
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
         <a href="visiting-cards.html" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
-          <div style="height:72px;display:flex;align-items:center;justify-content:center;margin:-4px -4px 8px -4px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.05)"><svg viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="280" height="180" fill="#F0F6FF"/>
-<rect x="40" y="35" width="200" height="120" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
-<rect x="40" y="35" width="200" height="42" rx="8" fill="#0073B1"/>
-<rect x="40" y="63" width="200" height="14" fill="#0073B1"/>
-<circle cx="68" cy="56" r="12" fill="white" opacity="0.2"/>
-<circle cx="68" cy="56" r="7" fill="#C9A84C"/>
-<rect x="88" y="48" width="80" height="7" rx="3.5" fill="white" opacity="0.9"/>
-<rect x="88" y="59" width="52" height="5" rx="2.5" fill="white" opacity="0.5"/>
-<rect x="56" y="92" width="60" height="5" rx="2.5" fill="#94A3B8"/>
-<rect x="56" y="102" width="90" height="4" rx="2" fill="#CBD5E1"/>
-<rect x="56" y="112" width="72" height="4" rx="2" fill="#CBD5E1"/>
-<rect x="56" y="122" width="84" height="4" rx="2" fill="#CBD5E1"/>
-<rect x="180" y="92" width="44" height="44" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
-<rect x="188" y="100" width="28" height="3" rx="1.5" fill="#0073B1" opacity="0.4"/>
-<rect x="188" y="106" width="20" height="3" rx="1.5" fill="#0073B1" opacity="0.3"/>
-<rect x="188" y="112" width="28" height="3" rx="1.5" fill="#0073B1" opacity="0.4"/>
-<rect x="188" y="118" width="16" height="3" rx="1.5" fill="#0073B1" opacity="0.3"/>
-<rect x="188" y="124" width="24" height="3" rx="1.5" fill="#0073B1" opacity="0.4"/>
-</svg></div>
+          <div style="height:110px;border-radius:8px;overflow:hidden;position:relative;margin:-4px -4px 10px -4px">
+          <img src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=320&h=240&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=320&h=240&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=640&h=480&fit=crop&q=75&auto=format 2x" alt="Premium visiting card printing Patna from ₹199 — velvet spot UV gold foil" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.5) 0%,transparent 50%)"></div>
+        </div>
           <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:4px">VISITING CARDS</div>
           <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹199</div>
           <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:5px">Velvet · Spot UV · Foil</div>
         </a>
         <a href="signs-posters.html" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
-          <div style="height:72px;display:flex;align-items:center;justify-content:center;margin:-4px -4px 8px -4px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.05)"><svg viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="280" height="180" fill="#EBF5FF"/>
-<rect x="24" y="20" width="232" height="120" rx="6" fill="#0A1628"/>
-<rect x="24" y="20" width="232" height="120" rx="6" fill="url(#bbgrad)" opacity="0.9"/>
-<defs><linearGradient id="bbgrad" x1="24" y1="20" x2="256" y2="140" gradientUnits="userSpaceOnUse"><stop stop-color="#003a63"/><stop offset="1" stop-color="#0A1628"/></linearGradient></defs>
-<rect x="36" y="32" width="180" height="12" rx="6" fill="white" opacity="0.9"/>
-<rect x="36" y="50" width="120" height="8" rx="4" fill="#C9A84C" opacity="0.8"/>
-<rect x="36" y="64" width="140" height="6" rx="3" fill="white" opacity="0.4"/>
-<rect x="36" y="74" width="100" height="6" rx="3" fill="white" opacity="0.3"/>
-<rect x="168" y="44" width="72" height="56" rx="6" fill="white" opacity="0.08"/>
-<circle cx="204" cy="65" r="18" fill="#0073B1" opacity="0.4"/>
-<circle cx="204" cy="65" r="10" fill="#0073B1"/>
-<rect x="36" y="96" width="200" height="1" fill="white" opacity="0.1"/>
-<rect x="36" y="104" width="80" height="6" rx="3" fill="#C9A84C"/>
-<rect x="128" y="104" width="60" height="6" rx="3" fill="white" opacity="0.3"/>
-<rect x="116" y="148" width="6" height="20" rx="3" fill="#64748B"/>
-<rect x="158" y="148" width="6" height="20" rx="3" fill="#64748B"/>
-<rect x="100" y="166" width="80" height="4" rx="2" fill="#94A3B8"/>
-</svg></div>
+          <div style="height:110px;border-radius:8px;overflow:hidden;position:relative;margin:-4px -4px 10px -4px">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=320&h=240&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=320&h=240&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1563986768609-322da13575f3?w=640&h=480&fit=crop&q=75&auto=format 2x" alt="Billboard flex banner printing Patna — Bailey Road outdoor advertising specialists" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.5) 0%,transparent 50%)"></div>
+        </div>
           <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:4px">BILLBOARDS</div>
           <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹12/sqft</div>
           <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:5px">Flex · Vinyl · LED</div>
         </a>
         <a href="clothing-bags.html" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
-          <div style="height:72px;display:flex;align-items:center;justify-content:center;margin:-4px -4px 8px -4px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.05)"><svg viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="280" height="180" fill="#F8FAFC"/>
-<rect x="96" y="40" width="88" height="120" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
-<rect x="96" y="40" width="88" height="36" rx="6" fill="#0A1628"/>
-<rect x="96" y="62" width="88" height="14" fill="#0A1628"/>
-<path d="M140 40 L130 56 L140 68 L150 56 Z" fill="white" opacity="0.1"/>
-<path d="M134 40 L128 52 L134 60" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.6"/>
-<path d="M146 40 L152 52 L146 60" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.6"/>
-<circle cx="140" cy="52" r="6" fill="#C9A84C" opacity="0.3"/>
-<rect x="108" y="86" width="64" height="6" rx="3" fill="#0073B1" opacity="0.12"/>
-<rect x="108" y="86" width="20" height="6" rx="3" fill="#0073B1"/>
-<rect x="108" y="100" width="64" height="5" rx="2.5" fill="#E2E8F0"/>
-<rect x="108" y="110" width="48" height="5" rx="2.5" fill="#E2E8F0"/>
-<rect x="108" y="120" width="56" height="5" rx="2.5" fill="#E2E8F0"/>
-<rect x="108" y="135" width="64" height="16" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
-<rect x="116" y="141" width="48" height="4" rx="2" fill="#0073B1" opacity="0.3"/>
-<rect x="56" y="52" width="36" height="64" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
-<rect x="56" y="52" width="36" height="20" rx="4" fill="#0A1628" opacity="0.8"/>
-<rect x="188" y="52" width="36" height="64" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
-<rect x="188" y="52" width="36" height="20" rx="4" fill="#0A1628" opacity="0.8"/>
-</svg></div>
+          <div style="height:110px;border-radius:8px;overflow:hidden;position:relative;margin:-4px -4px 10px -4px">
+          <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=320&h=240&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=320&h=240&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=640&h=480&fit=crop&q=75&auto=format 2x" alt="Corporate uniform t-shirt printing Patna embroidery DTF" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.5) 0%,transparent 50%)"></div>
+        </div>
           <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:4px">UNIFORMS</div>
           <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹299/pc</div>
           <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:5px">Embroidery · DTF</div>
@@ -418,9 +862,10 @@ img{loading:lazy}
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px">
 
       <a href="visiting-cards.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);position:relative">
-          <div style="font-size:52px">🃏</div>
-          <div style="position:absolute;bottom:10px;right:10px"><span class="badge badge-green">BESTSELLER</span></div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+          <img src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Visiting card printing in Patna — premium business cards" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          <div style="position:absolute;top:12px;right:12px"><span class="badge badge-green">BESTSELLER</span></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -433,9 +878,10 @@ img{loading:lazy}
       </a>
 
       <a href="stationery.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F0FDF4,#DCFCE7);position:relative">
-          <div style="font-size:52px">📄</div>
-          <div style="position:absolute;bottom:10px;right:10px"><span class="badge badge-blue">POPULAR</span></div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
+          <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Corporate stationery printing Patna — letterheads envelopes" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          <div style="position:absolute;top:12px;right:12px"><span class="badge badge-blue">POPULAR</span></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -448,9 +894,10 @@ img{loading:lazy}
       </a>
 
       <a href="signs-posters.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#FFF7ED,#FED7AA);position:relative">
-          <div style="font-size:52px">🪧</div>
-          <div style="position:absolute;bottom:10px;right:10px"><span class="badge badge-red">HIGH VALUE</span></div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Billboard and flex banner printing Patna — Bailey Road specialists" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          <div style="position:absolute;top:12px;right:12px"><span class="badge badge-red">HIGH VALUE</span></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -463,8 +910,10 @@ img{loading:lazy}
       </a>
 
       <a href="labels.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#FDF4FF,#F3E8FF)">
-          <div style="font-size:52px">🏷️</div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#FDF4FF,#F3E8FF)">
+          <img src="https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Product label and sticker printing Patna Bihar — FMCG pharma waterproof" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -477,9 +926,10 @@ img{loading:lazy}
       </a>
 
       <a href="clothing-bags.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#FFF1F2,#FFE4E6);position:relative">
-          <div style="font-size:52px">👕</div>
-          <div style="position:absolute;bottom:10px;right:10px"><span class="badge badge-blue">CORPORATE</span></div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#FFF1F2,#FFE4E6)">
+          <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Corporate uniform t-shirt printing Patna — DTF embroidery" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          <div style="position:absolute;top:12px;right:12px"><span class="badge badge-blue">CORPORATE</span></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -492,8 +942,10 @@ img{loading:lazy}
       </a>
 
       <a href="mugs-gifts.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">
-          <div style="font-size:52px">☕</div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">
+          <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Ceramic photo mug printing Patna — corporate Diwali gifts" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -506,8 +958,10 @@ img{loading:lazy}
       </a>
 
       <a href="pens.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-          <div style="font-size:52px">🖊️</div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
+          <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Logo engraved promotional pens Patna — metal ballpoint corporate" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -520,8 +974,10 @@ img{loading:lazy}
       </a>
 
       <a href="packaging.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#FEFCE8,#FEF08A)">
-          <div style="font-size:52px">📦</div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#FEFCE8,#FEF08A)">
+          <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1567016432779-094069958ea5?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Custom packaging box printing Patna — FSSAI food packaging" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -534,9 +990,10 @@ img{loading:lazy}
       </a>
 
       <a href="patna-brochure.html" class="cat-card">
-        <div style="height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F0F9FF,#BAE6FD);position:relative">
-          <div style="font-size:52px">📋</div>
-          <div style="position:absolute;bottom:10px;right:10px"><span class="badge badge-green">NEW</span></div>
+        <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#F0F9FF,#BAE6FD)">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop&q=75&auto=format 2x" alt="Brochure and flyer printing Patna — tri-fold UV gloss" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
+          <div style="position:absolute;top:12px;right:12px"><span class="badge badge-green">NEW</span></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
@@ -603,7 +1060,11 @@ img{loading:lazy}
       <button class="ind-tab" onclick="showInd(this,'ind-restaurant')">🍽 Restaurants</button>
     </div>
     <div id="ind-healthcare" class="ind-panel visible">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+      <div style="height:120px;border-radius:12px;overflow:hidden;margin-bottom:20px;position:relative">
+      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Healthcare clinic printing Patna — prescription pads labels uniforms" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏷️</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Patient File Labels</div><div style="font-size:12px;color:#64748b">Barcode, waterproof, OPD/IPD. Raja Bazar clinic spec.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹2.50/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📋</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Prescription Pads</div><div style="font-size:12px;color:#64748b">Doctor letterhead, 50-sheet NCR pads, hospital logo.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹499/pad</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🪧</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Clinic Signboards</div><div style="font-size:12px;color:#64748b">Acrylic, LED glow, flex. IGIMS, Boring Road, Kankarbagh.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹1,499</span></div></div>
@@ -613,7 +1074,11 @@ img{loading:lazy}
         <div class="card fade-up" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏥</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Hospital Brochure</div><div style="font-size:12px;color:#64748b">A4 tri-fold brochure with departments, doctors, timing. 500 pcs.</div><div style="margin-top:10px"><span class="badge badge-gold">From ₹1,199</span></div></div></div>
     </div>
     <div id="ind-hospitality" style="display:none">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+      <div style="height:120px;border-radius:12px;overflow:hidden;margin-bottom:20px;position:relative">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Hotel hospitality printing Patna — uniforms menus stationery" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🍽</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Menu Cards</div><div style="font-size:12px;color:#64748b">Laminated, spiral-bound, QR-linked digital menus.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹99/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">👔</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Hotel Uniforms</div><div style="font-size:12px;color:#64748b">Front desk, housekeeping, F&B. Logo embroidery.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹499/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏷️</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Key Card Holders</div><div style="font-size:12px;color:#64748b">Custom printed key envelopes & card holders.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹8/pc</span></div></div>
@@ -623,7 +1088,11 @@ img{loading:lazy}
         <div class="card fade-up" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🎁</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Diwali Gift Hampers</div><div style="font-size:12px;color:#64748b">Branded gift boxes with mug, pen, diary. Min 20 sets. GST invoice.</div><div style="margin-top:10px"><span class="badge badge-gold">From ₹699/set</span></div></div></div>
     </div>
     <div id="ind-startup" style="display:none">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+      <div style="height:120px;border-radius:12px;overflow:hidden;margin-bottom:20px;position:relative">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Startup office branding printing Patna — visiting cards materials" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🃏</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Founding Team Cards</div><div style="font-size:12px;color:#64748b">Premium velvet, spot UV, raised ink. 100 cards set.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹499/set</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📋</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Pitch Decks Printed</div><div style="font-size:12px;color:#64748b">A4 coil-bound, hard cover, gloss for investor meets.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹299/copy</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🪟</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Office Branding</div><div style="font-size:12px;color:#64748b">Window vinyls, wall murals, office signage.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹1,999</span></div></div>
@@ -633,7 +1102,11 @@ img{loading:lazy}
         <div class="card fade-up" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">👕</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Team T-Shirts</div><div style="font-size:12px;color:#64748b">DTF logo t-shirts for your startup team. Min 10 pcs, 30+ colours available.</div><div style="margin-top:10px"><span class="badge badge-green">From ₹349/pc</span></div></div></div>
     </div>
     <div id="ind-pharma" style="display:none">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+      <div style="height:120px;border-radius:12px;overflow:hidden;margin-bottom:20px;position:relative">
+      <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Pharma medical printing Patna Bihar — labels cartons pens" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏷️</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Medicine Labels</div><div style="font-size:12px;color:#64748b">Foil-laminated, tamper-evident, CDSCO compliant.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹1.50/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🪧</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">MR Kit Standees</div><div style="font-size:12px;color:#64748b">Roll-up banners, X-stands for medical rep campaigns.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹999</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📦</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Mono Cartons</div><div style="font-size:12px;color:#64748b">Custom printed medicine boxes, FSSAI, batch printing.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹8/box</span></div></div>
@@ -643,7 +1116,11 @@ img{loading:lazy}
         <div class="card fade-up" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🖊</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">MR Gift Pens</div><div style="font-size:12px;color:#64748b">Branded pens for doctor visits. Plastic or metal. Min 100 pcs with logo.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹39/pc</span></div></div></div>
     </div>
     <div id="ind-realestate" style="display:none">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+      <div style="height:120px;border-radius:12px;overflow:hidden;margin-bottom:20px;position:relative">
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Real estate billboard printing Patna — hoardings site boards" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏗</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Site Hoardings</div><div style="font-size:12px;color:#64748b">24×12 ft, 40×20 ft. Bailey Road, Boring Road, Kankar.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹12/sqft</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📋</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Project Brochures</div><div style="font-size:12px;color:#64748b">A4/A3 property brochures, spiral-bound, UV gloss.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹49/copy</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🃏</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Agent Cards</div><div style="font-size:12px;color:#64748b">Premium matte, QR portfolio cards. 500 pack.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹819</span></div></div>
@@ -653,7 +1130,11 @@ img{loading:lazy}
         <div class="card fade-up" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏷</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Property Sunboards</div><div style="font-size:12px;color:#64748b">Rigid PVC sunboards for plot listings, flat availability. Bailey Road, Patliputra.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹199</span></div></div></div>
     </div>
     <div id="ind-events" style="display:none">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+      <div style="height:120px;border-radius:12px;overflow:hidden;margin-bottom:20px;position:relative">
+      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Event printing Patna — standees banners step repeat backdrop" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🎪</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Stage Backdrops</div><div style="font-size:12px;color:#64748b">Step-and-repeat, gate arches, venue flex.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹12/sqft</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🎟</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Event Tickets</div><div style="font-size:12px;color:#64748b">Numbered, perforated, barcode event tickets.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹4/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📦</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Gift Hamper Boxes</div><div style="font-size:12px;color:#64748b">Custom branded boxes for Diwali & corporate events.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹49/box</span></div></div>
@@ -663,7 +1144,11 @@ img{loading:lazy}
         <div class="card fade-up" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📸</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Step & Repeat Backdrop</div><div style="font-size:12px;color:#64748b">Photo backdrop with logo repeat. 8×8 ft to 12×8 ft. Retractable stand.</div><div style="margin-top:10px"><span class="badge badge-gold">From ₹1,999</span></div></div></div>
     </div>
     <div id="ind-restaurant" style="display:none">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+      <div style="height:120px;border-radius:12px;overflow:hidden;margin-bottom:20px;position:relative">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Restaurant menu printing Patna — menu cards packaging uniforms" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🍽</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Menu Cards</div><div style="font-size:12px;color:#64748b">Laminated A4/A5, QR menus, spiral flip cards.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹79/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📦</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Food Packaging</div><div style="font-size:12px;color:#64748b">Custom boxes, bags, parcel stickers, FSSAI printed.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹8/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">👕</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Staff Uniforms</div><div style="font-size:12px;color:#64748b">Aprons, chef coats, waiter shirts with logo.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹299/pc</span></div></div>
@@ -736,17 +1221,17 @@ img{loading:lazy}
       <div class="review-card fade-up fade-up-d2">
         <div style="color:#C9A84C;font-size:14px;margin-bottom:10px">★★★★★</div>
         <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Got our hotel's 200 staff uniforms done — front desk, housekeeping, F&B. Embroidery quality superb. Delivered on time before Diwali season."</p>
-        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0073B1,#004080);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px">S</div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Sandeep Verma</div><div style="font-size:10px;color:#64748b">Hotel GM, Patna Junction Area</div></div></div>
+        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Rohit Sinha startup founder Bailey Road Patna" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Sandeep Verma</div><div style="font-size:10px;color:#64748b">Hotel GM, Patna Junction Area</div></div></div>
       </div>
       <div class="review-card fade-up fade-up-d3">
         <div style="color:#C9A84C;font-size:14px;margin-bottom:10px">★★★★★</div>
         <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Ordered 5,000 BOPP waterproof labels for our pickle jars. Perfect FSSAI-safe print, barcode scan works perfectly. Reordering every month now."</p>
-        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#15803d,#166534);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px">M</div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Meena Devi</div><div style="font-size:10px;color:#64748b">FMCG Founder, Kankarbagh</div></div></div>
+        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Dr Amisha Kumari gynaecologist Raja Bazar Patna" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Meena Devi</div><div style="font-size:10px;color:#64748b">FMCG Founder, Kankarbagh</div></div></div>
       </div>
       <div class="review-card fade-up fade-up-d4">
         <div style="color:#C9A84C;font-size:14px;margin-bottom:10px">★★★★★</div>
         <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Bailey Road billboard for our real estate project — 40×20 ft hoarding. Frame, print, installation all handled. Excellent quality, great visibility."</p>
-        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#C9A84C,#8B6914);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px">A</div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Arvind Singh</div><div style="font-size:10px;color:#64748b">Real Estate Developer, Bailey Road</div></div></div>
+        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Praveen Gupta hotel manager Patna Junction" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Arvind Singh</div><div style="font-size:10px;color:#64748b">Real Estate Developer, Bailey Road</div></div></div>
       </div>
 <!-- LOCALITIES -->
 <section class="sec" style="background:#F8FAFC;border-top:1px solid #E2E8F0">
@@ -993,5 +1478,443 @@ window.addEventListener('scroll',()=>{
   const nav=document.querySelector('nav');
   if(nav)nav.style.boxShadow=window.scrollY>10?'0 4px 20px rgba(0,0,0,.1)':'0 2px 8px rgba(0,0,0,.06)';
 });
+
+// Image lazy load fade-in
+document.querySelectorAll('img[loading="lazy"]').forEach(img=>{
+  if(img.complete){img.classList.add('loaded')}
+  else{img.addEventListener('load',()=>img.classList.add('loaded'))}
+});
+
+/* ═══════════════════════════════════════════════════════════════════
+   KOONAFA INTERACTIONS ENGINE
+   ═══════════════════════════════════════════════════════════════════ */
+(function() {
+  'use strict';
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── 1. SCROLL PROGRESS BAR ───────────────────────────────────────── */
+  const bar = document.createElement('div');
+  bar.id = 'scroll-progress';
+  document.body.prepend(bar);
+
+  function updateScrollBar() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrolled / total * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', updateScrollBar, { passive: true });
+
+  /* ── 2. CURSOR GLOW (desktop only) ───────────────────────────────── */
+  if (window.innerWidth > 768 && !prefersReducedMotion) {
+    const glow = document.createElement('div');
+    glow.id = 'cursor-glow';
+    document.body.appendChild(glow);
+    let mx = 0, my = 0, gx = 0, gy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animateCursor() {
+      gx += (mx - gx) * 0.08;
+      gy += (my - gy) * 0.08;
+      glow.style.left = gx + 'px';
+      glow.style.top  = gy + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+  }
+
+  /* ── 3. SCROLL REVEAL ENGINE ──────────────────────────────────────── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  // Mark all major content blocks for scroll reveal
+  function initScrollReveal() {
+    // Category cards — staggered
+    document.querySelectorAll('.cat-card').forEach((el, i) => {
+      el.classList.add('sr', 'sr--fade-up', `sr--d${Math.min(i % 3 + 1, 6)}`);
+      revealObserver.observe(el);
+    });
+
+    // Review cards
+    document.querySelectorAll('.review-card').forEach((el, i) => {
+      el.classList.add('sr', 'sr--fade-up', `sr--d${Math.min(i + 1, 6)}`);
+      revealObserver.observe(el);
+    });
+
+    // Locality tags — staggered
+    document.querySelectorAll('.loc-tag').forEach((el, i) => {
+      el.classList.add('sr', 'sr--scale', `sr--d${Math.min(i % 4 + 1, 6)}`);
+      revealObserver.observe(el);
+    });
+
+    // Steps
+    document.querySelectorAll('.step-item').forEach((el, i) => {
+      el.classList.add('sr', 'sr--fade-up', `sr--d${i + 1}`);
+      revealObserver.observe(el);
+    });
+
+    // Trust items
+    document.querySelectorAll('.trust-item').forEach((el, i) => {
+      el.classList.add('sr', 'sr--fade-up', `sr--d${i + 1}`);
+      revealObserver.observe(el);
+    });
+
+    // Section headings
+    document.querySelectorAll('.section-title, .section-label').forEach(el => {
+      if (!el.closest('.sr')) {
+        el.classList.add('sr', 'sr--fade-left');
+        revealObserver.observe(el);
+      }
+    });
+
+    // Price rows
+    document.querySelectorAll('.price-row').forEach((el, i) => {
+      el.classList.add('sr', 'sr--fade-right', `sr--d${Math.min(i + 1, 6)}`);
+      revealObserver.observe(el);
+    });
+
+    // Industry panel cards
+    document.querySelectorAll('.ind-panel .card').forEach((el, i) => {
+      el.classList.add('sr', 'sr--zoom', `sr--d${Math.min(i % 3 + 1, 6)}`);
+      revealObserver.observe(el);
+    });
+
+    // Hero stat items
+    document.querySelectorAll('.hero-stat').forEach((el, i) => {
+      el.classList.add('sr', 'sr--fade-up', `sr--d${i + 2}`);
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ── 4. PARALLAX SCROLLING ────────────────────────────────────────── */
+  function initParallax() {
+    if (prefersReducedMotion || window.innerWidth < 768) return;
+
+    const heroSection = document.querySelector('section[style*="padding:80px"]');
+    const heroImg     = heroSection ? heroSection.querySelector('img[style*="opacity:0.08"]') : null;
+    const heroDots    = heroSection ? heroSection.querySelector('[style*="background-image:radial-gradient"]') : null;
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+
+      // Hero background photo moves at 40% scroll speed (parallax)
+      if (heroImg) {
+        heroImg.style.transform = `translateY(${scrollY * 0.4}px) scale(1.1)`;
+      }
+      // Hero dot grid moves slower
+      if (heroDots) {
+        heroDots.style.transform = `translateY(${scrollY * 0.15}px)`;
+      }
+      // Hero glow orbs
+      const glowOrbs = heroSection ? heroSection.querySelectorAll('[style*="filter:blur"]') : [];
+      glowOrbs.forEach((orb, i) => {
+        const dir = i % 2 === 0 ? 1 : -1;
+        orb.style.transform = `translateY(${scrollY * 0.25 * dir}px)`;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ── 5. RIPPLE EFFECT on buttons ──────────────────────────────────── */
+  function createRipple(e) {
+    const btn = e.currentTarget;
+    const existing = btn.querySelector('.ripple');
+    if (existing) existing.remove();
+    const circle = document.createElement('span');
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 2;
+    circle.className = 'ripple';
+    circle.style.cssText = `
+      position:absolute;
+      width:${size}px;height:${size}px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.18);
+      left:${e.clientX - rect.left - size/2}px;
+      top:${e.clientY - rect.top - size/2}px;
+      transform:scale(0);
+      animation:ripple-anim .55s var(--ease-out-expo) forwards;
+      pointer-events:none;
+      z-index:10;
+    `;
+    btn.style.position = 'relative';
+    btn.style.overflow = 'hidden';
+    btn.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
+  }
+
+  // Inject ripple keyframe
+  const rippleStyle = document.createElement('style');
+  rippleStyle.textContent = `@keyframes ripple-anim{to{transform:scale(1);opacity:0}}`;
+  document.head.appendChild(rippleStyle);
+
+  function initRipples() {
+    document.querySelectorAll(
+      '.btn-primary, .btn-gold, a[href*="wa.me"]:not(.wa-float), ' +
+      'a[style*="background:#25D366"]:not(.wa-float), ' +
+      'a[style*="background:var(--co)"], ' +
+      '.ind-tab, .btn-magnetic'
+    ).forEach(btn => btn.addEventListener('mousedown', createRipple));
+  }
+
+  /* ── 6. MAGNETIC BUTTON EFFECT ────────────────────────────────────── */
+  function initMagnetic() {
+    if (prefersReducedMotion || window.innerWidth < 768) return;
+    document.querySelectorAll('.btn-gold, .wa-float').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) * 0.22;
+        const dy = (e.clientY - cy) * 0.22;
+        btn.style.transform = `translate(${dx}px, ${dy}px) scale(1.04)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+        btn.style.transition = 'transform .4s var(--ease-spring)';
+        setTimeout(() => btn.style.transition = '', 400);
+      });
+    });
+  }
+
+  /* ── 7. IMAGE REVEAL (B&W → Colour) on cat cards ─────────────────── */
+  function initImageReveal() {
+    document.querySelectorAll('.cat-card [style*="height:200px"]').forEach((container, i) => {
+      const img = container.querySelector('img');
+      if (!img) return;
+      container.classList.add('img-reveal');
+      // "View Products" label
+      const label = document.createElement('div');
+      label.className = 'img-reveal-label';
+      label.innerHTML = '<span style="background:rgba(0,115,177,.9);padding:6px 14px;border-radius:20px;font-size:11px">View Products →</span>';
+      container.appendChild(label);
+      // Grayscale to colour on hover
+      img.style.filter = 'grayscale(20%)';
+      img.style.transition = 'filter .5s ease, transform .6s var(--ease-in-out-quart)';
+      container.addEventListener('mouseenter', () => { img.style.filter = 'grayscale(0%) saturate(1.1)'; });
+      container.addEventListener('mouseleave', () => { img.style.filter = 'grayscale(20%)'; });
+    });
+  }
+
+  /* ── 8. HORIZONTAL SCROLL — stat showcase strip ───────────────────── */
+  function buildHorizontalScrollStrip() {
+    const stats = [
+      { icon: '🃏', val: '434+', label: 'Products', sub: 'Across 9 categories' },
+      { icon: '⚡', val: '2 PM', label: 'Same-Day Cutoff', sub: 'Order before 2 PM' },
+      { icon: '🏆', val: '15+', label: 'Years Experience', sub: 'Patna printing experts' },
+      { icon: '💰', val: '₹199', label: 'Starts From', sub: 'Visiting cards' },
+      { icon: '📄', val: 'GST ✓', label: 'Invoice', sub: 'B2B registered' },
+      { icon: '🚚', val: 'PAN', label: 'India Delivery', sub: 'Bihar & beyond' },
+      { icon: '🎨', val: 'Free', label: 'Design Help', sub: 'Orders above ₹2K' },
+      { icon: '♻️', val: '100%', label: 'Reprint Policy', sub: 'Quality guarantee' },
+    ];
+
+    const section = document.createElement('div');
+    section.style.cssText = 'background:#0A1628;padding:0;overflow:hidden;border-top:1px solid rgba(255,255,255,.06)';
+    section.innerHTML = `
+      <div class="h-scroll-track" id="stats-scroll" style="padding:20px 24px">
+        ${stats.map(s => `
+          <div class="h-scroll-card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);flex:0 0 180px;text-align:center;padding:20px 16px">
+            <div style="font-size:24px;margin-bottom:8px">${s.icon}</div>
+            <div class="ls" style="font-size:22px;font-weight:900;color:#C9A84C;line-height:1;margin-bottom:4px">${s.val}</div>
+            <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:3px;font-family:'Plus Jakarta Sans',sans-serif">${s.label}</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.4)">${s.sub}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    // Insert after trust bar section
+    const trustBar = document.querySelector('section[style*="border:1px solid #E2E8F0"]') ||
+                     document.querySelector('section');
+    if (trustBar && trustBar.parentNode) {
+      trustBar.insertAdjacentElement('afterend', section);
+    }
+
+    // Drag-to-scroll
+    const track = section.querySelector('.h-scroll-track');
+    if (!track) return;
+    let isDragging = false, startX = 0, scrollStart = 0;
+    track.addEventListener('mousedown', e => {
+      isDragging = true; startX = e.clientX; scrollStart = track.scrollLeft;
+      track.style.transition = 'none'; track.style.cursor = 'grabbing';
+    });
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      track.scrollLeft = scrollStart - (e.clientX - startX);
+    });
+    document.addEventListener('mouseup', () => {
+      isDragging = false; track.style.cursor = 'grab';
+    });
+    // Touch support
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX; scrollStart = track.scrollLeft;
+    }, { passive: true });
+    track.addEventListener('touchmove', e => {
+      track.scrollLeft = scrollStart - (e.touches[0].clientX - startX);
+    }, { passive: true });
+  }
+
+  /* ── 9. HERO STATS — add .hero-stat wrapper class ─────────────────── */
+  function wrapHeroStats() {
+    const statDivs = document.querySelectorAll('[style*="font-size:30px;font-weight:900;color:#C9A84C"]');
+    statDivs.forEach(val => {
+      const parent = val.parentElement;
+      if (parent) parent.classList.add('hero-stat');
+    });
+  }
+
+  /* ── 10. HERO MINI-CARDS — add float animation ────────────────────── */
+  function animateHeroCards() {
+    if (prefersReducedMotion) return;
+    const heroCards = document.querySelectorAll(
+      'a[style*="rgba(255,255,255,.07)"], a[style*="rgba(255,255,255,0.07)"]'
+    );
+    const floatClasses = ['hero-float-1', 'hero-float-2', 'hero-float-3', 'hero-float-4'];
+    heroCards.forEach((card, i) => {
+      card.classList.add(floatClasses[i % floatClasses.length]);
+    });
+    // Gold "same-day" card  
+    const goldCard = document.querySelector('div[style*="rgba(201,168,76,.18)"]');
+    if (goldCard) goldCard.classList.add('hero-float-4');
+  }
+
+  /* ── 11. MICRO-INTERACTION: step numbers progress line ─────────────── */
+  function animateStepsOnReveal() {
+    const stepsSection = document.querySelector('.step-line');
+    if (!stepsSection) return;
+    const lineObs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        const line = stepsSection.previousElementSibling || stepsSection;
+        // Animate the connector line drawing in
+        const pseudo = document.createElement('style');
+        pseudo.textContent = `
+          .step-line::before {
+            animation: step-line-draw .8s var(--ease-out-expo) .2s both;
+          }
+          @keyframes step-line-draw {
+            from { clip-path: inset(0 100% 0 0); }
+            to   { clip-path: inset(0 0% 0 0); }
+          }
+        `;
+        document.head.appendChild(pseudo);
+        lineObs.disconnect();
+      }
+    }, { threshold: 0.5 });
+    lineObs.observe(stepsSection);
+  }
+
+  /* ── 12. TRUST ITEMS — add class if not present ───────────────────── */
+  function initTrustItems() {
+    // Trust bar items — find the 5 trust pillars
+    const trustContainer = document.querySelector('[style*="display:flex"][style*="gap:1px"]') ||
+      document.querySelector('section > .mx > div[style*="display:grid"][style*="repeat(5"]');
+    // More reliable: find divs with trust-like content
+    document.querySelectorAll('section').forEach(sec => {
+      if (sec.textContent.includes('Same-Day') && sec.textContent.includes('GST Invoice') &&
+          sec.textContent.includes('Free Design')) {
+        sec.querySelectorAll('[style*="display:flex"][style*="align-items:center"]').forEach(item => {
+          item.classList.add('trust-item');
+        });
+      }
+    });
+  }
+
+  /* ── 13. STEP ITEMS — add wrapper class ───────────────────────────── */
+  function initStepItems() {
+    document.querySelectorAll('.step-line > div').forEach(item => {
+      item.classList.add('step-item');
+    });
+  }
+
+  /* ── 14. BADGE PING — add to BESTSELLER badges ────────────────────── */
+  function initBadgePings() {
+    document.querySelectorAll('.badge-green').forEach(b => {
+      if (b.textContent.trim() === 'BESTSELLER' || b.textContent.includes('NEW')) {
+        b.classList.add('badge-ping');
+      }
+    });
+  }
+
+  /* ── 15. SMOOTH SECTION FADE-IN ───────────────────────────────────── */
+  function initSectionReveal() {
+    document.querySelectorAll('section').forEach((sec, i) => {
+      if (i === 0) return; // skip first
+      sec.classList.add('reveal-section');
+      const sObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            sObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+      sObs.observe(sec);
+    });
+  }
+
+  /* ── 16. NAV ACTIVE LINK UNDERLINE ANIMATION ──────────────────────── */
+  function initNavIndicator() {
+    const navLinks = document.querySelectorAll('.nav-link:not(.nav-ai)');
+    navLinks.forEach(link => {
+      link.style.position = 'relative';
+      link.style.overflow = 'hidden';
+    });
+  }
+
+  /* ── 17. SCROLL-TRIGGERED COUNTER ANIMATION (improved) ──────────── */
+  function initCounters() {
+    const counters = document.querySelectorAll('[data-target]');
+    if (!counters.length) return;
+    const cObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const dur = 1400;
+        const step = target / (dur / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.round(current) + suffix;
+          if (current >= target) { clearInterval(timer); el.textContent = target + suffix; }
+        }, 16);
+        cObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => cObs.observe(c));
+  }
+
+  /* ── INIT ALL ─────────────────────────────────────────────────────── */
+  function init() {
+    initScrollReveal();
+    initParallax();
+    initRipples();
+    initMagnetic();
+    initImageReveal();
+    buildHorizontalScrollStrip();
+    wrapHeroStats();
+    animateHeroCards();
+    animateStepsOnReveal();
+    initTrustItems();
+    initStepItems();
+    initBadgePings();
+    initSectionReveal();
+    initNavIndicator();
+    initCounters();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
 </script>
 </body>
