@@ -910,44 +910,237 @@ footer a:hover {
           <div><div class="ls counter" style="font-size:30px;font-weight:900;color:#C9A84C" data-target="15" data-suffix="+">0+</div><div style="font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.04em">YRS EXP</div></div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <a href="visiting-cards.html" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
-          <div style="height:110px;border-radius:8px;overflow:hidden;position:relative;margin:-4px -4px 10px -4px">
-          <img src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=320&h=240&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=320&h=240&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=640&h=480&fit=crop&q=75&auto=format 2x" alt="Premium visiting card printing Patna from ₹199 — velvet spot UV gold foil" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.5) 0%,transparent 50%)"></div>
+      <!-- ═══ HERO PRODUCT CARDS — Enhanced Effects ═══ -->
+      <style>
+        .hpc-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+        /* Glassmorphism card base */
+        .hpc {
+          position: relative;
+          border-radius: 18px;
+          overflow: hidden;
+          text-decoration: none;
+          display: block;
+          cursor: pointer;
+          transform-style: preserve-3d;
+          transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+          transition: box-shadow .4s ease, transform .1s ease;
+          box-shadow: 0 4px 24px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.12);
+        }
+        .hpc:hover {
+          box-shadow: 0 20px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(201,168,76,.4), inset 0 1px 0 rgba(255,255,255,.18);
+        }
+
+        /* Full-bleed image */
+        .hpc-img {
+          width: 100%; height: 170px;
+          object-fit: cover;
+          display: block;
+          transition: transform .7s cubic-bezier(.25,.46,.45,.94), filter .5s ease;
+          filter: brightness(.75) saturate(.85);
+        }
+        .hpc:hover .hpc-img {
+          transform: scale(1.08);
+          filter: brightness(.92) saturate(1.1);
+        }
+
+        /* Gradient overlay */
+        .hpc-overlay {
+          position: absolute; inset: 0;
+          background: linear-gradient(160deg, rgba(10,22,40,.1) 0%, rgba(10,22,40,.72) 65%, rgba(0,115,177,.18) 100%);
+          transition: opacity .4s ease;
+        }
+        .hpc:hover .hpc-overlay { opacity: .75; }
+
+        /* Shimmer sweep on hover */
+        .hpc-shimmer {
+          position: absolute; inset: 0;
+          background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.09) 50%, transparent 60%);
+          transform: translateX(-100%);
+          transition: transform .7s ease;
+          pointer-events: none;
+          z-index: 3;
+        }
+        .hpc:hover .hpc-shimmer { transform: translateX(100%); }
+
+        /* Glass info panel */
+        .hpc-body {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          padding: 14px 16px 16px;
+          background: rgba(10,22,40,.55);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-top: 1px solid rgba(255,255,255,.1);
+          transform: translateY(0);
+          transition: background .35s ease, transform .35s ease;
+          z-index: 2;
+        }
+        .hpc:hover .hpc-body {
+          background: rgba(0,30,70,.72);
+          transform: translateY(-2px);
+        }
+
+        /* Hover-reveal CTA */
+        .hpc-cta {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 9px; font-weight: 800;
+          letter-spacing: .1em; text-transform: uppercase;
+          color: #0A1628;
+          background: linear-gradient(135deg, #C9A84C, #E8C565);
+          padding: 4px 10px; border-radius: 4px;
+          display: inline-block;
+          margin-top: 7px;
+          opacity: 0; transform: translateY(6px);
+          transition: opacity .3s ease .05s, transform .3s ease .05s;
+        }
+        .hpc:hover .hpc-cta { opacity: 1; transform: translateY(0); }
+
+        /* Gold top-edge accent bar */
+        .hpc::before {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #C9A84C, #E8C565, #C9A84C);
+          opacity: 0;
+          transition: opacity .3s ease;
+          z-index: 4;
+        }
+        .hpc:hover::before { opacity: 1; }
+
+        /* Scroll-entrance animation */
+        .hpc-wrap { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+        .hpc-wrap.hpc-in { opacity: 1; transform: none; }
+        .hpc-wrap:nth-child(2) { transition-delay: .1s; }
+        .hpc-wrap:nth-child(3) { transition-delay: .18s; }
+        .hpc-wrap:nth-child(4) { transition-delay: .26s; }
+      </style>
+
+      <div class="hpc-grid">
+
+        <!-- Card 1: Visiting Cards -->
+        <div class="hpc-wrap">
+          <a href="visiting-cards.html" class="hpc" id="hpc1">
+            <img class="hpc-img" src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=640&h=340&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=320&h=170&fit=crop&q=80 1x, https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=640&h=340&fit=crop&q=75 2x" alt="Visiting card printing Patna" loading="lazy">
+            <div class="hpc-overlay"></div>
+            <div class="hpc-shimmer"></div>
+            <div class="hpc-body">
+              <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:3px;letter-spacing:.06em">VISITING CARDS</div>
+              <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹199</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:3px">Velvet · Spot UV · Foil</div>
+              <span class="hpc-cta">Explore →</span>
+            </div>
+          </a>
         </div>
-          <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:4px">VISITING CARDS</div>
-          <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹199</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:5px">Velvet · Spot UV · Foil</div>
-        </a>
-        <a href="signs-posters.html" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
-          <div style="height:110px;border-radius:8px;overflow:hidden;position:relative;margin:-4px -4px 10px -4px">
-          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=320&h=240&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=320&h=240&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1563986768609-322da13575f3?w=640&h=480&fit=crop&q=75&auto=format 2x" alt="Billboard flex banner printing Patna — Bailey Road outdoor advertising specialists" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.5) 0%,transparent 50%)"></div>
+
+        <!-- Card 2: Billboards -->
+        <div class="hpc-wrap">
+          <a href="signs-posters.html" class="hpc" id="hpc2">
+            <img class="hpc-img" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=640&h=340&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=320&h=170&fit=crop&q=80 1x, https://images.unsplash.com/photo-1563986768609-322da13575f3?w=640&h=340&fit=crop&q=75 2x" alt="Billboard flex printing Patna" loading="lazy">
+            <div class="hpc-overlay"></div>
+            <div class="hpc-shimmer"></div>
+            <div class="hpc-body">
+              <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:3px;letter-spacing:.06em">BILLBOARDS</div>
+              <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹12/sqft</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:3px">Flex · Vinyl · LED</div>
+              <span class="hpc-cta">Explore →</span>
+            </div>
+          </a>
         </div>
-          <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:4px">BILLBOARDS</div>
-          <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹12/sqft</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:5px">Flex · Vinyl · LED</div>
-        </a>
-        <a href="clothing-bags.html" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
-          <div style="height:110px;border-radius:8px;overflow:hidden;position:relative;margin:-4px -4px 10px -4px">
-          <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=320&h=240&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=320&h=240&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=640&h=480&fit=crop&q=75&auto=format 2x" alt="Corporate uniform t-shirt printing Patna embroidery DTF" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.5) 0%,transparent 50%)"></div>
+
+        <!-- Card 3: Uniforms -->
+        <div class="hpc-wrap">
+          <a href="clothing-bags.html" class="hpc" id="hpc3">
+            <img class="hpc-img" src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=640&h=340&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=320&h=170&fit=crop&q=80 1x, https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=640&h=340&fit=crop&q=75 2x" alt="Uniform printing Patna" loading="lazy">
+            <div class="hpc-overlay"></div>
+            <div class="hpc-shimmer"></div>
+            <div class="hpc-body">
+              <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:3px;letter-spacing:.06em">UNIFORMS</div>
+              <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹299/pc</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:3px">Embroidery · DTF</div>
+              <span class="hpc-cta">Explore →</span>
+            </div>
+          </a>
         </div>
-          <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:4px">UNIFORMS</div>
-          <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹299/pc</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:5px">Embroidery · DTF</div>
-        </a>
-        <a href="signs-posters.html" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
-          <div style="height:110px;border-radius:8px;overflow:hidden;position:relative;margin:-4px -4px 10px -4px">
-          <img src="https://images.unsplash.com/photo-1605256585681-7c7c4ef4bff2?w=320&h=240&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1605256585681-7c7c4ef4bff2?w=320&h=240&fit=crop&q=85&auto=format 1x, https://images.unsplash.com/photo-1605256585681-7c7c4ef4bff2?w=640&h=480&fit=crop&q=75&auto=format 2x" alt="Flex banner and hoarding printing Patna — indoor outdoor backlit signage" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.5) 0%,transparent 50%)"></div>
+
+        <!-- Card 4: Flex & Hoardings -->
+        <div class="hpc-wrap">
+          <a href="signs-posters.html" class="hpc" id="hpc4">
+            <img class="hpc-img" src="https://images.unsplash.com/photo-1605256585681-7c7c4ef4bff2?w=640&h=340&fit=crop&q=85&auto=format" srcset="https://images.unsplash.com/photo-1605256585681-7c7c4ef4bff2?w=320&h=170&fit=crop&q=80 1x, https://images.unsplash.com/photo-1605256585681-7c7c4ef4bff2?w=640&h=340&fit=crop&q=75 2x" alt="Flex hoarding printing Patna" loading="lazy">
+            <div class="hpc-overlay"></div>
+            <div class="hpc-shimmer"></div>
+            <div class="hpc-body">
+              <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:3px;letter-spacing:.06em">FLEX & HOARDINGS</div>
+              <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹12/sqft</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:3px">Indoor · Outdoor · Backlit</div>
+              <span class="hpc-cta">Explore →</span>
+            </div>
+          </a>
         </div>
-          <div class="ls" style="font-size:12px;font-weight:800;color:#fff;margin-bottom:4px">FLEX & HOARDINGS</div>
-          <div style="font-size:11px;color:#C9A84C;font-weight:700">From ₹12/sqft</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:5px">Indoor · Outdoor · Backlit</div>
-        </a>
-      </div>
+
+      </div><!-- /hpc-grid -->
+
+      <script>
+      (function(){
+        /* ── 1. Scroll-entrance observer ── */
+        const wraps = document.querySelectorAll('.hpc-wrap');
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('hpc-in'); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        wraps.forEach(w => io.observe(w));
+
+        /* ── 2. 3D tilt on mousemove ── */
+        document.querySelectorAll('.hpc').forEach(card => {
+          card.addEventListener('mousemove', e => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width  - 0.5;
+            const y = (e.clientY - r.top)  / r.height - 0.5;
+            card.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.03)`;
+          });
+          card.addEventListener('mouseleave', () => {
+            card.style.transition = 'transform .5s cubic-bezier(.25,.46,.45,.94), box-shadow .4s ease';
+            card.style.transform  = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+            setTimeout(() => card.style.transition = 'box-shadow .4s ease, transform .1s ease', 500);
+          });
+
+          /* ── 3. Parallax image on mousemove ── */
+          const img = card.querySelector('.hpc-img');
+          card.addEventListener('mousemove', e => {
+            const r  = card.getBoundingClientRect();
+            const px = ((e.clientX - r.left) / r.width  - 0.5) * 12;
+            const py = ((e.clientY - r.top)  / r.height - 0.5) * 12;
+            img.style.transform = `scale(1.08) translate(${px}px,${py}px)`;
+          });
+          card.addEventListener('mouseleave', () => {
+            img.style.transform = 'scale(1)';
+          });
+
+          /* ── 4. Click ripple ── */
+          card.addEventListener('click', e => {
+            const ripple = document.createElement('span');
+            const r = card.getBoundingClientRect();
+            const size = Math.max(r.width, r.height) * 2;
+            ripple.style.cssText = `
+              position:absolute;
+              width:${size}px;height:${size}px;border-radius:50%;
+              background:rgba(201,168,76,.2);
+              left:${e.clientX-r.left-size/2}px;
+              top:${e.clientY-r.top-size/2}px;
+              transform:scale(0);
+              animation:hpc-ripple .55s ease-out forwards;
+              pointer-events:none;z-index:5;
+            `;
+            card.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+          });
+        });
+
+        /* Ripple keyframe */
+        const s = document.createElement('style');
+        s.textContent = '@keyframes hpc-ripple{to{transform:scale(1);opacity:0}}';
+        document.head.appendChild(s);
+      })();
+      </script>
     </div>
   </div>
 </section>
