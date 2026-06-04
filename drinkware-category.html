@@ -673,21 +673,23 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">KOONAFA <span>●</span> PRINT</div>
+  <a href="index.html" class="nav-logo" style="text-decoration:none">KOONAFA <span>●</span> PRINT</a>
   <ul class="nav-links">
-    <li><a href="#">Business Cards</a></li>
-    <li><a href="#">Stationery</a></li>
-    <li><a href="#">Signage</a></li>
-    <li><a href="#">Apparel</a></li>
-    <li><a href="#" class="active">Drinkware</a></li>
-    <li><a href="#">Gifts</a></li>
+    <li><a href="visiting-cards.html">Visiting Cards</a></li>
+    <li><a href="stationery.html">Stationery</a></li>
+    <li><a href="signs-posters.html">Signage</a></li>
+    <li><a href="clothing-bags.html">Clothing</a></li>
+    <li><a href="drinkware-category.html" class="active">Drinkware</a></li>
+    <li><a href="mugs-gifts.html">Mugs &amp; Gifts</a></li>
+    <li><a href="pens.html">Pens</a></li>
+    <li><a href="packaging.html">Packaging</a></li>
   </ul>
-  <button class="nav-cta">Get a Quote</button>
+  <button class="nav-cta" onclick="window.open('https://wa.me/919172712982?text=Hi%20Koonafa%2C%20I%20need%20a%20drinkware%20quote','_blank')">Get a Quote</button>
 </nav>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
-  Home &nbsp;/&nbsp; Products &nbsp;/&nbsp; <span>Drinkware</span>
+  <a href="index.html" style="color:inherit;text-decoration:none">Home</a> &nbsp;/&nbsp; <a href="index.html#categories" style="color:inherit;text-decoration:none">Products</a> &nbsp;/&nbsp; <span>Drinkware</span>
 </div>
 
 <!-- HERO -->
@@ -704,8 +706,8 @@
       Minimum 25 units. Delivered across Patna &amp; Bihar within 5–7 days.
     </p>
     <div class="hero-actions">
-      <button class="btn-primary">Browse All Products</button>
-      <button class="btn-ghost">Request a Sample</button>
+      <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Browse All Products</button>
+      <button class="btn-ghost" onclick="window.open('https://wa.me/919172712982?text=Hi%20Koonafa%2C%20I%20would%20like%20a%20drinkware%20sample','_blank')">Request a Sample</button>
     </div>
   </div>
 
@@ -769,12 +771,12 @@
 </div>
 
 <!-- BESTSELLERS -->
-<div class="section-header">
+<div id="products" class="section-header">
   <div>
     <div class="section-tag">Most Ordered</div>
     <h2 class="section-title">Bestselling <strong>Drinkware</strong></h2>
   </div>
-  <a href="#" class="view-all-link">View All Products →</a>
+  <a href="index.html#categories" class="view-all-link">View All Products →</a>
 </div>
 
 <div class="product-grid">
@@ -1022,13 +1024,24 @@
 <footer class="footer-bar">
   <div class="footer-brand">KOONAFA <span>●</span> PRINT & DESIGN</div>
   <ul class="footer-links">
-    <li><a href="#">Catalogue PDF</a></li>
-    <li><a href="#">Bulk Enquiry</a></li>
-    <li><a href="#">Track Order</a></li>
-    <li><a href="#">WhatsApp Us</a></li>
+    <li><a href="index.html">← Back to Home</a></li>
+    <li><a href="index.html#categories">All Products</a></li>
+    <li><a href="https://wa.me/919172712982?text=Hi%20Koonafa%2C%20I%20need%20a%20drinkware%20bulk%20enquiry" target="_blank">Bulk Enquiry</a></li>
+    <li><a href="https://wa.me/919172712982?text=Hi%20Koonafa%2C%20I%20need%20to%20track%20my%20order" target="_blank">Track Order</a></li>
+    <li><a href="https://wa.me/919172712982" target="_blank">WhatsApp Us</a></li>
   </ul>
   <div class="footer-copy">© 2026 Koonafa. Patna, Bihar.</div>
 </footer>
 
-</body>
+<script>
+/* Wire all "Get Quote" buttons to WhatsApp with product name pre-filled */
+document.querySelectorAll('.btn-quote').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const name = this.closest('.product-card').querySelector('.product-name').textContent.trim();
+    const price = this.closest('.product-card').querySelector('.product-price').textContent.trim();
+    const msg = encodeURIComponent('Hi Koonafa, I need a quote for: ' + name + ' (' + price + ')');
+    window.open('https://wa.me/919172712982?text=' + msg, '_blank');
+  });
+});
+</script>
 </html>
