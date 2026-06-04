@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Drinkware — Koonafa Print & Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --cream: #f5f1ea;
+    --rust: #c84b2f;
+    --sand: #d4c9b0;
+    --gold: #b8922a;
+    --mist: #e8e2d8;
+    --dark: #1a1814;
+    --accent: #2a5c45;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    color: var(--cream);
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sand);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--rust);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #a83a1e; }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    background: var(--mist);
+    padding: 0.75rem 3rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: #888;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--sand);
+  }
+  .breadcrumb span { color: var(--rust); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-left {
+    background: var(--dark);
+    padding: 5rem 3.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    top: 0; right: -30px; bottom: 0;
+    width: 60px;
+    background: var(--dark);
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    z-index: 3;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    animation: fadeUp 0.5s 0.1s both;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 5.5vw, 5.5rem);
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.5s 0.2s both;
+  }
+  .hero-title em {
+    color: var(--rust);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.65em;
+    display: block;
+    line-height: 1.2;
+  }
+  .hero-body {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--sand);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    animation: fadeUp 0.5s 0.35s both;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.5s 0.5s both;
+  }
+  .btn-primary {
+    background: var(--rust);
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #a83a1e; transform: translateY(-2px); }
+  .btn-ghost {
+    border: 1px solid var(--sand);
+    color: var(--sand);
+    background: transparent;
+    padding: 0.9rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── HERO PHOTO GRID ── */
+  .hero-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    background: #000;
+  }
+  .hero-img-block {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .hero-img-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(0.85) saturate(0.9);
+  }
+  .hero-img-block:hover img {
+    transform: scale(1.06);
+    filter: brightness(1) saturate(1.1);
+  }
+  .hero-img-block .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero-img-block .label {
+    position: absolute;
+    bottom: 0.9rem;
+    left: 0.9rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    z-index: 2;
+  }
+  .hero-img-block .badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.55rem;
+    z-index: 2;
+  }
+  .badge-new { background: var(--accent); color: #fff; }
+  .badge-bestseller { background: var(--gold); color: #fff; }
+  .badge-hot { background: var(--rust); color: #fff; }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--rust);
+    display: flex;
+    justify-content: center;
+  }
+  .stat {
+    flex: 1;
+    max-width: 220px;
+    padding: 1.3rem 1.5rem;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    color: #fff;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.25rem;
+  }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    background: var(--accent);
+    overflow: hidden;
+    padding: 0.72rem 0;
+    border-top: 2px solid rgba(255,255,255,0.1);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+  }
+  .ticker {
+    display: flex;
+    animation: ticker 32s linear infinite;
+    white-space: nowrap;
+  }
+  .ticker-item {
+    padding: 0 3rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+  }
+  .ticker-item::before { content: '★'; color: var(--gold); font-size: 0.55rem; }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    padding: 4rem 3rem 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .section-title strong { font-weight: 600; font-style: italic; }
+  .view-all-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rust);
+    transition: opacity 0.2s;
+  }
+  .view-all-link:hover { opacity: 0.7; }
+
+  /* ── PRODUCT GRID ── */
+  .product-grid {
+    padding: 2.5rem 3rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2px;
+    background: var(--sand);
+  }
+  .product-card {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.25s, box-shadow 0.25s;
+    overflow: hidden;
+  }
+  .product-card:hover {
+    transform: translateY(-5px);
+    z-index: 2;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+  }
+  .product-img {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    background: var(--mist);
+  }
+  .product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.4s ease;
+    filter: brightness(0.95) saturate(0.85);
+  }
+  .product-card:hover .product-img img {
+    transform: scale(1.07);
+    filter: brightness(1.02) saturate(1.05);
+  }
+  .product-img .card-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.55rem;
+    z-index: 2;
+  }
+  .product-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15,14,12,0.3) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .product-info {
+    padding: 1.2rem 1.25rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+  .product-desc {
+    font-size: 0.83rem;
+    color: #888;
+    line-height: 1.55;
+    margin-bottom: auto;
+    padding-bottom: 1rem;
+  }
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--mist);
+    padding-top: 0.85rem;
+    margin-top: 0.85rem;
+  }
+  .product-price {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink);
+  }
+  .product-price span { color: var(--rust); font-size: 0.9rem; font-weight: 500; }
+  .btn-quote {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    padding: 0.48rem 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-quote:hover { background: var(--rust); }
+
+  /* ── FEATURED BANNER ── */
+  .featured-banner {
+    margin: 0 3rem;
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .featured-banner img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.45) saturate(0.7);
+  }
+  .featured-banner-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 3rem;
+    max-width: 560px;
+  }
+  .featured-banner-content .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .featured-banner-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.05em;
+    color: #fff;
+    line-height: 0.95;
+    margin-bottom: 1rem;
+  }
+  .featured-banner-content p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── CATEGORY STRIPS ── */
+  .category-strips {
+    padding: 2px 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--sand);
+    margin-top: 3rem;
+  }
+  .cat-strip {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+  }
+  .cat-strip img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.4s ease;
+    filter: brightness(0.55) saturate(0.8);
+  }
+  .cat-strip:hover img { transform: scale(1.06); filter: brightness(0.65) saturate(1); }
+  .cat-strip-content {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    padding-top: 3rem;
+  }
+  .cat-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+  .cat-info p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+  }
+  .cat-arrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--gold);
+  }
+
+  /* ── WHY US ── */
+  .why-section {
+    padding: 5rem 3rem;
+    background: var(--dark);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .why-left .section-tag { color: var(--gold); }
+  .why-left .section-title { color: var(--cream); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .why-item {
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.3s;
+  }
+  .why-item:hover { border-color: var(--gold); }
+  .why-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .why-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+  .why-desc {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.05em;
+    color: var(--sand);
+    opacity: 0.75;
+    line-height: 1.65;
+  }
+
+  /* ── INSPIRATION STRIP ── */
+  .inspo-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    background: var(--sand);
+    height: 200px;
+  }
+  .inspo-cell {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .inspo-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s, filter 0.4s;
+    filter: brightness(0.75) saturate(0.75);
+  }
+  .inspo-cell:hover img { transform: scale(1.1); filter: brightness(0.9) saturate(1.1); }
+  .inspo-cell .cap {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0.6rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    z-index: 2;
+  }
+
+  /* ── FOOTER BAR ── */
+  .footer-bar {
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 0;
+  }
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    color: var(--cream);
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.08em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">KOONAFA <span>●</span> PRINT</div>
+  <ul class="nav-links">
+    <li><a href="#">Business Cards</a></li>
+    <li><a href="#">Stationery</a></li>
+    <li><a href="#">Signage</a></li>
+    <li><a href="#">Apparel</a></li>
+    <li><a href="#" class="active">Drinkware</a></li>
+    <li><a href="#">Gifts</a></li>
+  </ul>
+  <button class="nav-cta">Get a Quote</button>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  Home &nbsp;/&nbsp; Products &nbsp;/&nbsp; <span>Drinkware</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Category — 2026 Collection</div>
+    <h1 class="hero-title">
+      Custom<br>Drinkware
+      <em>Your Brand. Every Sip.</em>
+    </h1>
+    <p class="hero-body">
+      From vacuum-insulated tumblers to bespoke champagne flutes —
+      print your logo on drinkware that travels with your clients.
+      Minimum 25 units. Delivered across Patna &amp; Bihar within 5–7 days.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary">Browse All Products</button>
+      <button class="btn-ghost">Request a Sample</button>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-img-block">
+      <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&q=80&fit=crop" alt="Steel water bottle">
+      <div class="overlay"></div>
+      <span class="label">Vacuum Bottles</span>
+      <span class="badge badge-new">New</span>
+    </div>
+    <div class="hero-img-block">
+      <img src="https://images.unsplash.com/photo-1616198814651-e71f960c3180?w=600&q=80&fit=crop" alt="Tumbler">
+      <div class="overlay"></div>
+      <span class="label">Tumblers</span>
+      <span class="badge badge-bestseller">Best</span>
+    </div>
+    <div class="hero-img-block">
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80&fit=crop" alt="Beer mug">
+      <div class="overlay"></div>
+      <span class="label">Beer Mugs</span>
+    </div>
+    <div class="hero-img-block">
+      <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80&fit=crop" alt="Champagne glasses">
+      <div class="overlay"></div>
+      <span class="label">Champagne</span>
+      <span class="badge badge-new">New</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">48+</div><div class="stat-label">Drinkware SKUs</div></div>
+  <div class="stat"><div class="stat-num">25</div><div class="stat-label">Min. Order Units</div></div>
+  <div class="stat"><div class="stat-num">5–7</div><div class="stat-label">Day Delivery Bihar</div></div>
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Brands Served</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Print Guaranteed</div></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">Pexpo Austin Steel Water Bottles — Now Available</span>
+    <span class="ticker-item">Pexpo Cameo Compact Steel Bottles — New Launch</span>
+    <span class="ticker-item">Pexpo Morocco Thermo Steel — Premium Range</span>
+    <span class="ticker-item">Pexpo Orio Thermo Steel — New Arrival</span>
+    <span class="ticker-item">Pexpo Bravo Vacuum Bottles — In Stock</span>
+    <span class="ticker-item">Pexpo Cocoa Vacuum Steel Tumblers — Now Printing</span>
+    <span class="ticker-item">Temperature Display Mugs — Custom Branding Available</span>
+    <span class="ticker-item">Personalised Champagne Glasses — Corporate Gifting</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">Pexpo Austin Steel Water Bottles — Now Available</span>
+    <span class="ticker-item">Pexpo Cameo Compact Steel Bottles — New Launch</span>
+    <span class="ticker-item">Pexpo Morocco Thermo Steel — Premium Range</span>
+    <span class="ticker-item">Pexpo Orio Thermo Steel — New Arrival</span>
+    <span class="ticker-item">Pexpo Bravo Vacuum Bottles — In Stock</span>
+    <span class="ticker-item">Pexpo Cocoa Vacuum Steel Tumblers — Now Printing</span>
+    <span class="ticker-item">Temperature Display Mugs — Custom Branding Available</span>
+    <span class="ticker-item">Personalised Champagne Glasses — Corporate Gifting</span>
+  </div>
+</div>
+
+<!-- BESTSELLERS -->
+<div class="section-header">
+  <div>
+    <div class="section-tag">Most Ordered</div>
+    <h2 class="section-title">Bestselling <strong>Drinkware</strong></h2>
+  </div>
+  <a href="#" class="view-all-link">View All Products →</a>
+</div>
+
+<div class="product-grid">
+
+  <div class="product-card">
+    <div class="product-img">
+      <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&q=80&fit=crop" alt="Custom Water Bottles">
+      <span class="card-badge badge-bestseller">Bestseller</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name">Custom Water Bottles</div>
+      <div class="product-desc">BPA-free stainless steel. 500ml &amp; 1L. Full-wrap logo printing available.</div>
+      <div class="product-footer">
+        <div class="product-price">From <span>₹149</span>/unit</div>
+        <button class="btn-quote">Get Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">
+      <img src="https://images.unsplash.com/photo-1616198814651-e71f960c3180?w=500&q=80&fit=crop" alt="Customised Tumblers">
+      <span class="card-badge badge-bestseller">Bestseller</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name">Customised Tumblers</div>
+      <div class="product-desc">Double-wall insulation. Keeps beverages hot/cold for 12 hours.</div>
+      <div class="product-footer">
+        <div class="product-price">From <span>₹189</span>/unit</div>
+        <button class="btn-quote">Get Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">
+      <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?w=500&q=80&fit=crop" alt="Cello Duro Kent Water Bottles">
+    </div>
+    <div class="product-info">
+      <div class="product-name">Cello Duro Kent Water Bottles</div>
+      <div class="product-desc">Premium brand collab. Ideal for corporate gifting &amp; FMCG promotions.</div>
+      <div class="product-footer">
+        <div class="product-price">From <span>₹215</span>/unit</div>
+        <button class="btn-quote">Get Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&q=80&fit=crop" alt="Temperature Display Bottles">
+      <span class="card-badge badge-hot">Hot</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name">Temperature Display Bottles</div>
+      <div class="product-desc">LED temperature sensor cap. Smart gifting for tech-forward brands.</div>
+      <div class="product-footer">
+        <div class="product-price">From <span>₹279</span>/unit</div>
+        <button class="btn-quote">Get Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">
+      <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500&q=80&fit=crop" alt="Personalised Champagne Glasses">
+      <span class="card-badge badge-new">New</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name">Personalised Champagne Glasses</div>
+      <div class="product-desc">Luxury event &amp; wedding gifting. Etched logo or full-colour UV print.</div>
+      <div class="product-footer">
+        <div class="product-price">From <span>₹320</span>/unit</div>
+        <button class="btn-quote">Get Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=500&q=80&fit=crop" alt="Frosted Beer Mugs">
+    </div>
+    <div class="product-info">
+      <div class="product-name">Frosted Beer Mugs</div>
+      <div class="product-desc">Frosted glass finish. Perfect for restaurant chains, breweries &amp; hotels.</div>
+      <div class="product-footer">
+        <div class="product-price">From <span>₹165</span>/unit</div>
+        <button class="btn-quote">Get Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80&fit=crop" alt="Temperature Display Mugs">
+      <span class="card-badge badge-new">New</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name">Temperature Display Mugs</div>
+      <div class="product-desc">Changes colour with heat. High perceived value for corporate kits.</div>
+      <div class="product-footer">
+        <div class="product-price">From <span>₹199</span>/unit</div>
+        <button class="btn-quote">Get Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80&fit=crop" alt="Pexpo Bravo Vacuum Bottles">
+      <span class="card-badge badge-new">New</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name">Pexpo Bravo Vacuum Bottles</div>
+      <div class="product-desc">24-hour cold / 12-hour hot. Powder-coated matte finish. Logo-ready.</div>
+      <div class="product-footer">
+        <div class="product-price">From <span>₹349</span>/unit</div>
+        <button class="btn-quote">Get Quote</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FEATURED PEXPO BANNER -->
+<div class="featured-banner" style="margin-top:3rem;">
+  <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1400&q=80&fit=crop" alt="Premium Drinkware Collection">
+  <div class="featured-banner-content">
+    <div class="tag">★ New in Drinkware — Pexpo Series</div>
+    <h2>Premium<br>Steel Range</h2>
+    <p>Five new Pexpo models just arrived — Austin, Cameo, Morocco, Orio & Bravo. Matte powder-coat, vacuum insulation, logo-print ready.</p>
+    <button class="btn-primary">Explore Pexpo Range →</button>
+  </div>
+</div>
+
+<!-- SUB-CATEGORY STRIPS -->
+<div class="section-header" style="padding-top:3rem;">
+  <div>
+    <div class="section-tag">Browse by Type</div>
+    <h2 class="section-title">Explore <strong>Sub-Categories</strong></h2>
+  </div>
+</div>
+
+<div class="category-strips">
+  <div class="cat-strip">
+    <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&q=80&fit=crop" alt="Water Bottles">
+    <div class="cat-strip-content">
+      <div class="cat-info">
+        <h3>Water Bottles</h3>
+        <p>8 Products — Cello, Gym, Inox, Thermal</p>
+      </div>
+      <span class="cat-arrow">→</span>
+    </div>
+  </div>
+  <div class="cat-strip">
+    <img src="https://images.unsplash.com/photo-1616198814651-e71f960c3180?w=800&q=80&fit=crop" alt="Sippers and Tumblers">
+    <div class="cat-strip-content">
+      <div class="cat-info">
+        <h3>Sippers & Tumblers</h3>
+        <p>6 Products — Skinny, Travel, Vacuum</p>
+      </div>
+      <span class="cat-arrow">→</span>
+    </div>
+  </div>
+  <div class="cat-strip">
+    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80&fit=crop" alt="Mugs and Glassware">
+    <div class="cat-strip-content">
+      <div class="cat-info">
+        <h3>Mugs & Glassware</h3>
+        <p>7 Products — Beer, Champagne, Wine</p>
+      </div>
+      <span class="cat-arrow">→</span>
+    </div>
+  </div>
+  <div class="cat-strip">
+    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&q=80&fit=crop" alt="Pexpo Premium Range">
+    <div class="cat-strip-content" style="background:linear-gradient(to top, rgba(200,75,47,0.75) 0%, transparent 100%);">
+      <div class="cat-info">
+        <h3>Pexpo Premium Range</h3>
+        <p>5 New Models — Bravo, Morocco, Austin, Cameo, Orio</p>
+      </div>
+      <span class="cat-arrow" style="color:#fff;">→</span>
+    </div>
+  </div>
+</div>
+
+<!-- INSPIRATION STRIP -->
+<div class="inspo-strip" style="margin-top:2px;">
+  <div class="inspo-cell">
+    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=75&fit=crop" alt="Gym bottle">
+    <span class="cap">Gym Bottle</span>
+  </div>
+  <div class="inspo-cell">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=75&fit=crop" alt="Coffee mug">
+    <span class="cap">Coffee Mug</span>
+  </div>
+  <div class="inspo-cell">
+    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=75&fit=crop" alt="Corporate gifting">
+    <span class="cap">Corp. Gifting</span>
+  </div>
+  <div class="inspo-cell">
+    <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400&q=75&fit=crop" alt="Sipper bottle">
+    <span class="cap">Sipper</span>
+  </div>
+  <div class="inspo-cell">
+    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&q=75&fit=crop" alt="Event bar">
+    <span class="cap">Event Bar</span>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="why-left">
+    <div class="section-tag">Why Koonafa</div>
+    <h2 class="section-title" style="color:var(--cream);">We Print.<br><strong>You Impress.</strong></h2>
+    <p style="font-size:1rem;color:var(--sand);margin-top:1rem;line-height:1.7;opacity:0.8;">
+      Patna's most reliable B2B print partner for drinkware, signage, and branded merchandise.
+    </p>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-icon">🎨</div>
+      <div class="why-title">Free Design Support</div>
+      <div class="why-desc">Our in-house team converts your brief or logo into print-ready artwork at zero cost.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📦</div>
+      <div class="why-title">Low MOQ — 25 Units</div>
+      <div class="why-desc">No need for warehouse-scale orders. Start small, scale as your campaigns grow.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🚚</div>
+      <div class="why-title">Pan-Bihar Delivery</div>
+      <div class="why-desc">5–7 day standard delivery across Patna, Gaya, Muzaffarpur, Bhagalpur &amp; beyond.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🏆</div>
+      <div class="why-title">Print Quality Warranty</div>
+      <div class="why-desc">If the print chips, fades or misaligns — we reprint. No questions, no fine print.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER BAR -->
+<footer class="footer-bar">
+  <div class="footer-brand">KOONAFA <span>●</span> PRINT & DESIGN</div>
+  <ul class="footer-links">
+    <li><a href="#">Catalogue PDF</a></li>
+    <li><a href="#">Bulk Enquiry</a></li>
+    <li><a href="#">Track Order</a></li>
+    <li><a href="#">WhatsApp Us</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Koonafa. Patna, Bihar.</div>
+</footer>
+
+</body>
+</html>
