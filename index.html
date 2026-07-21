@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Printing Services Patna | Business Cards, Flyers, Banners, Invitations Printing | Koonafa Print Studio</title>
+<title>Printing Services Patna | Same-Day | Koonafa Print Studio</title>
 <meta name="description" content="Premium printing in Patna — visiting cards from ₹199, billboards, uniforms. Same-day dispatch before 2 PM. GST invoice. WhatsApp +91 91727 12982.">
 <meta name="keywords" content="printing services in patna, best print studio patna, same day printing patna, printing press in raja bazar patna, printing shop near bailey road, commercial printers in patna bihar, visiting card printing in patna, flex banner printing in patna, billboard manufacturers in patna, corporate uniform suppliers patna, custom box manufacturers in patna, brochure and flyer printers patna, logo engraved personalized pens patna, corporate diwali gifts bulk patna, printing patna bihar">
 <meta property="og:title" content="Printing Services Patna | Same-Day | Koonafa Print Studio">
@@ -179,6 +179,11 @@ strong,b{font-weight:600}
 .ind-panel{transition:opacity .25s ease,transform .25s ease}
 .ind-panel.hidden{opacity:0;transform:translateY(8px);pointer-events:none;position:absolute}
 .ind-panel.visible{opacity:1;transform:translateY(0);position:relative}
+/* ── Industry product grid — fixed columns, no orphan cards ── */
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ind-grid .card{display:flex;flex-direction:column}
+@media(max-width:820px){.ind-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.ind-grid{grid-template-columns:1fr}}
 /* ── FAQ smooth height animation ── */
 .faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .faq-body.open{max-height:300px}
@@ -568,6 +573,7 @@ footer a:hover {
   cursor: grab;
 }
 .h-scroll-track::-webkit-scrollbar { display: none; }
+.prod-track::-webkit-scrollbar { display: none; }
 .h-scroll-track:active { cursor: grabbing; }
 .h-scroll-card {
   flex: 0 0 260px;
@@ -723,14 +729,21 @@ footer a:hover {
 
 <nav style="background:#fff;border-bottom:2px solid #E2E8F0;position:sticky;top:0;z-index:9000;box-shadow:0 2px 8px rgba(0,0,0,.06)">
   <div class="mx">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;min-height:60px">
+    <!-- ROW 1 — Logo + Contact -->
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #F1F5F9">
       <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0">
         <div style="width:36px;height:36px;border-radius:10px;background:#0073B1;display:flex;align-items:center;justify-content:center">
           <svg viewBox="0 0 64 64" fill="none" style="width:22px;height:22px"><path d="M14 32C14 19 26 11 38 14L50 18L39 25L46 40C43 51 28 54 17 46Z" fill="white"/><circle cx="50" cy="18" r="6" fill="#C9A84C"/></svg>
         </div>
         <div><div class="ls" style="font-weight:900;font-size:16px;color:#0A1628;line-height:1">KOONAFA</div><div style="font-size:7px;color:#0073B1;letter-spacing:.1em;font-weight:700">PRINT STUDIO</div></div>
       </a>
-      <div style="display:flex;align-items:center;gap:1px;flex-wrap:wrap;position:relative">
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+        <a href="tel:+919172712982" style="padding:8px 14px;background:rgba(0,115,177,.08);color:#0073B1;border-radius:8px;text-decoration:none;font-size:11px;font-weight:700">📞 +91 91727 12982</a>
+        <a href="https://wa.me/919172712982?text=Hi%20Koonafa%2C%20I%20want%20to%20place%20a%20print%20order" target="_blank" style="padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-size:11px;font-weight:700">WhatsApp Order</a>
+      </div>
+    </div>
+    <!-- ROW 2 — Nav links -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:1px;flex-wrap:wrap;position:relative;padding:3px 0">
         <a href="index.html" class="nav-link active">ALL PRODUCTS</a>
         <a href="visiting-cards.html" class="nav-link">VISITING CARDS</a>
 
@@ -873,12 +886,7 @@ footer a:hover {
         <a href="drinkware-category.html" class="nav-link">🥤 DRINKWARE</a>
         <a href="aivats.html" class="nav-link nav-ai">AIvats</a>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-        <a href="tel:+919172712982" style="padding:8px 14px;background:rgba(0,115,177,.08);color:#0073B1;border-radius:8px;text-decoration:none;font-size:11px;font-weight:700">📞 +91 91727 12982</a>
-        <a href="https://wa.me/919172712982?text=Hi%20Koonafa%2C%20I%20want%20to%20place%20a%20print%20order" target="_blank" style="padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-size:11px;font-weight:700">WhatsApp Order</a>
-      </div>
     </div>
-  </div>
 </nav>
 
 <!-- HERO -->
@@ -1268,6 +1276,18 @@ footer a:hover {
           <div class="esc-img-wrap" style="background:#F0F9FF"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=320&h=320&fit=crop&q=80" alt="Brochures & Flyers" loading="lazy"></div>
           <span class="esc-label">Brochures &amp; Flyers</span>
         </a>
+        <a href="stationery.html#corporate-diary" class="esc-item">
+          <div class="esc-img-wrap" style="background:#FDF4FF"><img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=320&h=320&fit=crop&q=80" alt="Corporate Diaries" loading="lazy"></div>
+          <span class="esc-label">Corporate Diaries</span>
+        </a>
+        <a href="clothing-bags.html?type=rainwear" class="esc-item">
+          <div class="esc-img-wrap" style="background:#EFF6FF"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=320&h=320&fit=crop&q=80" alt="Custom Umbrellas" loading="lazy"></div>
+          <span class="esc-label">Custom Umbrellas</span>
+        </a>
+        <a href="packaging.html" class="esc-item">
+          <div class="esc-img-wrap" style="background:#F0FDF4"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=320&h=320&fit=crop&q=80" alt="Laptop Bags" loading="lazy"></div>
+          <span class="esc-label">Laptop &amp; Courier Bags</span>
+        </a>
       </div>
 
       <script>
@@ -1445,6 +1465,206 @@ footer a:hover {
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PROMO BANNERS — Vistaprint-style dual hero banners
+     ═══════════════════════════════════════════════════════════════════ -->
+<section style="background:#fff;padding:44px 0 8px;border-top:1px solid #E2E8F0">
+  <div class="mx">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+
+      <a href="visiting-cards.html" class="cat-card" style="position:relative;min-height:270px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#0A1628,#003a63)">
+        <img src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=900&h=520&fit=crop&q=80&auto=format" alt="Visiting cards promo — 100 cards at ₹199" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5">
+        <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,22,40,.94) 22%,rgba(10,22,40,.25) 65%,transparent 100%)"></div>
+        <div style="position:relative;padding:32px;max-width:300px">
+          <div class="ls" style="font-size:23px;font-weight:900;color:#fff;margin-bottom:6px">Visiting Cards</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.78);margin-bottom:18px">100 Visiting Cards at ₹199</div>
+          <span class="btn-gold">Shop Now</span>
+        </div>
+      </a>
+
+      <a href="clothing-bags.html?type=rainwear" class="cat-card" style="position:relative;min-height:270px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#0A1628,#003a63)">
+        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&h=520&fit=crop&q=80&auto=format" alt="Custom rainwear promo — umbrellas and raincoats" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55">
+        <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,22,40,.94) 22%,rgba(10,22,40,.25) 65%,transparent 100%)"></div>
+        <div style="position:relative;padding:32px;max-width:310px">
+          <div class="ls" style="font-size:23px;font-weight:900;color:#fff;margin-bottom:6px">Look Professional with Custom Rainwear</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.78);margin-bottom:18px">Starting at ₹399</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <span class="btn-gold" style="padding:10px 18px">Umbrellas</span>
+            <span class="btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;padding:10px 18px">Raincoats</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PRODUCT CAROUSELS — Popular / Trending / Labels & Packaging / Explore More
+     Reuses the .na-card component (defined below in New Arrivals) for
+     visual consistency across every product rail on the page.
+     ═══════════════════════════════════════════════════════════════════ -->
+<style>
+  .prod-rail{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:8px}
+  .prod-nav-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid #E2E8F0;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:#0A1628;transition:all .2s;flex-shrink:0}
+  .prod-nav-btn:hover{border-color:#0073B1;color:#0073B1}
+</style>
+
+<!-- OUR MOST POPULAR PRODUCTS -->
+<section class="sec" style="padding:16px 0 8px;background:#fff">
+  <div class="mx">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+      <h2 class="section-title" style="margin-bottom:0">Our Most Popular Products</h2>
+      <div style="display:flex;gap:8px">
+        <button class="prod-nav-btn" onclick="prodScroll('pp-track',-1)">‹</button>
+        <button class="prod-nav-btn" onclick="prodScroll('pp-track',1)">›</button>
+      </div>
+    </div>
+    <div id="pp-track" class="prod-rail prod-track">
+
+      <a href="visiting-cards.html?p=standard" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹199</span><img src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=400&h=400&fit=crop&q=85" alt="Standard Visiting Cards" loading="lazy"></div><div class="na-body"><div class="na-name">Standard Visiting Cards</div><div><span class="na-price">₹199</span></div></div></a>
+
+      <a href="visiting-cards.html?p=rounded-corner" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹249</span><img src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=400&h=400&fit=crop&q=85" alt="Rounded Corner Visiting Cards" loading="lazy"></div><div class="na-body"><div class="na-name">Rounded Corner Visiting Cards</div><div><span class="na-price">₹249</span></div></div></a>
+
+      <a href="stationery.html#letterheads" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹299</span><img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=400&h=400&fit=crop&q=85" alt="Letterheads" loading="lazy"></div><div class="na-body"><div class="na-name">Letterheads</div><div><span class="na-price">₹299</span></div></div></a>
+
+      <a href="mugs-gifts.html?p=photo-albums" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹1,499</span><img src="https://images.unsplash.com/photo-1528569937393-ee892b976859?w=400&h=400&fit=crop&q=85" alt="Photo Albums" loading="lazy"></div><div class="na-body"><div class="na-name">Photo Albums</div><div><span class="na-price">₹1,499</span></div></div></a>
+
+      <a href="labels.html?p=sheet-stickers" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹349</span><img src="https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=400&h=400&fit=crop&q=85" alt="Die-Cut Stickers" loading="lazy"></div><div class="na-body"><div class="na-name">Die-Cut Stickers</div><div><span class="na-price">₹349</span></div></div></a>
+
+      <a href="clothing-bags.html?type=polo" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹499</span><img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400&h=400&fit=crop&q=85" alt="Men's Polo T-Shirts" loading="lazy"></div><div class="na-body"><div class="na-name">Men's Polo T-Shirts</div><div><span class="na-price">₹499</span></div></div></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING -->
+<section class="sec" style="padding:24px 0 8px;background:#fff">
+  <div class="mx">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+      <h2 class="section-title" style="margin-bottom:0">Trending</h2>
+      <div style="display:flex;gap:8px">
+        <button class="prod-nav-btn" onclick="prodScroll('tr-track',-1)">‹</button>
+        <button class="prod-nav-btn" onclick="prodScroll('tr-track',1)">›</button>
+      </div>
+    </div>
+    <div id="tr-track" class="prod-rail prod-track">
+
+      <a href="visiting-cards.html?p=spot-uv" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹349</span><img src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=400&h=400&fit=crop&q=85" alt="Spot UV Visiting Cards" loading="lazy"></div><div class="na-body"><div class="na-name">Spot UV Visiting Cards</div><div><span class="na-price">₹349</span></div></div></a>
+
+      <a href="visiting-cards.html?p=velvet" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹449</span><img src="https://images.unsplash.com/photo-1592578630481-cc8a75bfe7dd?w=400&h=400&fit=crop&q=85" alt="Velvet Touch Visiting Cards" loading="lazy"></div><div class="na-body"><div class="na-name">Velvet Touch Visiting Cards</div><div><span class="na-price">₹449</span></div></div></a>
+
+      <a href="clothing-bags.html?type=rainwear&p=rainsuits" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹899</span><img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=400&h=400&fit=crop&q=85" alt="Rainsuits" loading="lazy"></div><div class="na-body"><div class="na-name">Rainsuits</div><div><span class="na-price">₹899</span></div></div></a>
+
+      <a href="clothing-bags.html?type=rainwear&p=single-fold-umbrella" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹399</span><img src="https://images.unsplash.com/photo-1541697183324-e15d407c91cf?w=400&h=400&fit=crop&q=85" alt="Single Fold Umbrellas" loading="lazy"></div><div class="na-body"><div class="na-name">Single Fold Umbrellas</div><div><span class="na-price">₹399</span></div></div></a>
+
+      <a href="clothing-bags.html?type=rainwear&p=golf-umbrella" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹899</span><img src="https://images.unsplash.com/photo-1514882651048-f09572b0233e?w=400&h=400&fit=crop&q=85" alt="Golf Umbrellas" loading="lazy"></div><div class="na-body"><div class="na-name">Golf Umbrellas</div><div><span class="na-price">₹899</span></div></div></a>
+
+      <a href="clothing-bags.html?type=caps" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹275</span><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=400&fit=crop&q=85" alt="Printed Caps" loading="lazy"></div><div class="na-body"><div class="na-name">Printed Caps</div><div><span class="na-price">₹275</span></div></div></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- LABELS, STICKERS AND PACKAGING -->
+<section class="sec" style="padding:24px 0 8px;background:#fff">
+  <div class="mx">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+      <h2 class="section-title" style="margin-bottom:0">Labels, Stickers and Packaging</h2>
+      <div style="display:flex;gap:8px">
+        <button class="prod-nav-btn" onclick="prodScroll('lb-track',-1)">‹</button>
+        <button class="prod-nav-btn" onclick="prodScroll('lb-track',1)">›</button>
+      </div>
+    </div>
+    <div id="lb-track" class="prod-rail prod-track">
+
+      <a href="labels.html?p=sheet-stickers" class="na-card"><div class="na-img"><span class="na-badge">BUY 24 @ ₹199</span><img src="https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=400&h=400&fit=crop&q=85" alt="Sheet Stickers" loading="lazy"></div><div class="na-body"><div class="na-name">Sheet Stickers</div><div><span class="na-price">₹199</span></div></div></a>
+
+      <a href="labels.html?p=product-labels" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹499</span><img src="https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=400&h=400&fit=crop&q=85" alt="Product & Packaging Labels" loading="lazy"></div><div class="na-body"><div class="na-name">Product &amp; Packaging Labels</div><div><span class="na-price">₹499</span></div></div></a>
+
+      <a href="labels.html?p=custom-shape-stickers" class="na-card"><div class="na-img"><span class="na-badge">BUY 50 @ ₹399</span><img src="https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=400&h=400&fit=crop&q=85" alt="Custom Shape Stickers" loading="lazy"></div><div class="na-body"><div class="na-name">Custom Shape Stickers</div><div><span class="na-price">₹399</span></div></div></a>
+
+      <a href="labels.html?p=sticker-singles" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹299</span><img src="https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=400&h=400&fit=crop&q=85" alt="Sticker Singles" loading="lazy"></div><div class="na-body"><div class="na-name">Sticker Singles</div><div><span class="na-price">₹299</span></div></div></a>
+
+      <a href="packaging.html?p=self-adhesive-tapes" class="na-card"><div class="na-img"><span class="na-badge">BUY 6 @ ₹599</span><img src="https://images.unsplash.com/photo-1602629978851-125a3b62f3d8?w=400&h=400&fit=crop&q=85" alt="Self Adhesive Tapes" loading="lazy"></div><div class="na-body"><div class="na-name">Self Adhesive Tapes</div><div><span class="na-price">₹599</span></div></div></a>
+
+      <a href="labels.html?p=transparent-labels" class="na-card"><div class="na-img"><span class="na-badge">BUY 100 @ ₹449</span><img src="https://images.unsplash.com/photo-1614043429014-33e5d85e5ac0?w=400&h=400&fit=crop&q=85" alt="Transparent Labels" loading="lazy"></div><div class="na-body"><div class="na-name">Transparent Labels</div><div><span class="na-price">₹449</span></div></div></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECONDARY PROMO BANNERS -->
+<section style="background:#fff;padding:24px 0 8px">
+  <div class="mx">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+
+      <a href="mugs-gifts.html?p=photo-albums" class="cat-card" style="position:relative;min-height:230px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#0A1628,#5a3a12)">
+        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=900&h=460&fit=crop&q=80&auto=format" alt="Wedding albums and photo gifting promo" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4">
+        <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,22,40,.94) 25%,rgba(10,22,40,.25) 65%,transparent 100%)"></div>
+        <div style="position:relative;padding:28px;max-width:290px">
+          <div class="ls" style="font-size:19px;font-weight:900;color:#fff;margin-bottom:6px">Preserve Your Cherished Moments</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.75);margin-bottom:14px">Photo albums starting at ₹1,499</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span class="btn-gold" style="padding:9px 16px;font-size:12px">Albums</span>
+            <span class="btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;padding:9px 16px;font-size:12px">Mugs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="clothing-bags.html?type=polo" class="cat-card" style="position:relative;min-height:230px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#0A1628,#003a63)">
+        <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=900&h=460&fit=crop&q=80&auto=format" alt="Wear your brand with pride — corporate polo t-shirts" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4">
+        <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,22,40,.94) 25%,rgba(10,22,40,.25) 65%,transparent 100%)"></div>
+        <div style="position:relative;padding:28px;max-width:290px">
+          <div class="ls" style="font-size:19px;font-weight:900;color:#fff;margin-bottom:6px">Wear Your Brand with Pride</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.75);margin-bottom:14px">Starting at ₹349</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span class="btn-gold" style="padding:9px 16px;font-size:12px">Polo T-Shirts</span>
+            <span class="btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;padding:9px 16px;font-size:12px">Caps</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE MORE -->
+<section class="sec" style="padding:24px 0 16px;background:#fff">
+  <div class="mx">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+      <h2 class="section-title" style="margin-bottom:0">Explore More</h2>
+      <div style="display:flex;gap:8px">
+        <button class="prod-nav-btn" onclick="prodScroll('em-track',-1)">‹</button>
+        <button class="prod-nav-btn" onclick="prodScroll('em-track',1)">›</button>
+      </div>
+    </div>
+    <div id="em-track" class="prod-rail prod-track">
+
+      <a href="clothing-bags.html?p=waterproof-rain-caps" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹299</span><img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&h=400&fit=crop&q=85" alt="Waterproof Rain Caps" loading="lazy"></div><div class="na-body"><div class="na-name">Waterproof Rain Caps</div><div><span class="na-price">₹299</span></div></div></a>
+
+      <a href="packaging.html?p=embroidered-laptop-bags" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹1,199</span><img src="https://images.unsplash.com/photo-1568247067952-eab2ce84a349?w=400&h=400&fit=crop&q=85" alt="Embroidered Laptop Bags" loading="lazy"></div><div class="na-body"><div class="na-name">Embroidered Laptop Bags</div><div><span class="na-price">₹1,199</span></div></div></a>
+
+      <a href="packaging.html?p=laptop-bags-rain-cover" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹1,499</span><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&q=85" alt="Laptop Bags with Rain Cover" loading="lazy"></div><div class="na-body"><div class="na-name">Laptop Bags with Rain Cover</div><div><span class="na-price">₹1,499</span></div></div></a>
+
+      <a href="clothing-bags.html?type=rainwear&p=two-fold-umbrella" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹499</span><img src="https://images.unsplash.com/photo-1580051235428-f88ae8a2d53b?w=400&h=400&fit=crop&q=85" alt="Two-Fold Umbrellas" loading="lazy"></div><div class="na-body"><div class="na-name">Two-Fold Umbrellas</div><div><span class="na-price">₹499</span></div></div></a>
+
+      <a href="clothing-bags.html?type=rainwear&p=poncho-raincoats" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹599</span><img src="https://images.unsplash.com/photo-1523772721666-22ad3c3b6f90?w=400&h=400&fit=crop&q=85" alt="Poncho Raincoats" loading="lazy"></div><div class="na-body"><div class="na-name">Poncho Raincoats</div><div><span class="na-price">₹599</span></div></div></a>
+
+      <a href="signs-posters.html?p=posters" class="na-card"><div class="na-img"><span class="na-badge">BUY 1 @ ₹149</span><img src="https://images.unsplash.com/photo-1543487945-139a97f387d5?w=400&h=400&fit=crop&q=85" alt="Posters" loading="lazy"></div><div class="na-body"><div class="na-name">Posters</div><div><span class="na-price">₹149</span></div></div></a>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function prodScroll(id, dir){
+  const t = document.getElementById(id);
+  if(!t) return;
+  t.scrollBy({ left: dir * 700, behavior: 'smooth' });
+}
+</script>
 
 <!-- NEW ARRIVALS -->
 <section id="new-arrivals" style="background:#F8FAFC;border-top:1px solid #E2E8F0;padding:56px 0">
@@ -1731,11 +1951,33 @@ footer a:hover {
       <a href="signs-posters.html?p=table-flags" class="na-card">
         <div class="na-img">
           <span class="na-badge">BUY 1 @ ₹1,950</span>
-          <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?w=400&h=400&fit=crop&q=85" alt="Table Flags" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1535911062114-764574491173?w=400&h=400&fit=crop&q=85" alt="Table Flags" loading="lazy">
         </div>
         <div class="na-body">
           <div class="na-name">Table Flags</div>
           <div><span class="na-price">₹1,950</span></div>
+        </div>
+      </a>
+
+      <a href="mugs-gifts.html?p=photo-frames" class="na-card">
+        <div class="na-img">
+          <span class="na-badge">BUY 1 @ ₹499</span>
+          <img src="https://images.unsplash.com/photo-1595981234058-a9302fb97229?w=400&h=400&fit=crop&q=85" alt="Custom Photo Frames" loading="lazy">
+        </div>
+        <div class="na-body">
+          <div class="na-name">Custom Photo Frames</div>
+          <div><span class="na-price">₹499</span></div>
+        </div>
+      </a>
+
+      <a href="pens.html?p=metal-pen-box-set" class="na-card">
+        <div class="na-img">
+          <span class="na-badge">BUY 1 @ ₹399</span>
+          <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&h=400&fit=crop&q=85" alt="Metal Pen Gift Box Set" loading="lazy">
+        </div>
+        <div class="na-body">
+          <div class="na-name">Metal Pen Gift Box Set</div>
+          <div><span class="na-price">₹399</span></div>
         </div>
       </a>
 
@@ -1859,7 +2101,11 @@ footer a:hover {
   <div class="mx">
     <span class="section-label">Industry Solutions</span>
     <h2 class="section-title">We Print for Every Business in Bihar</h2>
-    <p style="font-size:14px;color:#64748b;max-width:560px;line-height:1.7;margin-bottom:28px">From Raja Bazar clinics to Bailey Road real estate, Koonafa delivers industry-specific print solutions at scale.</p>
+    <p style="font-size:14px;color:#64748b;max-width:560px;line-height:1.7;margin-bottom:10px">From Raja Bazar clinics to Bailey Road real estate, Koonafa delivers industry-specific print solutions at scale.</p>
+    <div style="display:flex;gap:6px;align-items:center;margin-bottom:24px">
+      <span style="width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block"></span>
+      <span style="font-size:11.5px;font-weight:700;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif">7 industries covered · 6 tailored products per sector · updated for 2026</span>
+    </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px" id="ind-tabs">
       <button class="ind-tab active" onclick="showInd(this,'ind-healthcare')">🏥 Healthcare</button>
       <button class="ind-tab" onclick="showInd(this,'ind-hospitality')">🏨 Hospitality</button>
@@ -1874,7 +2120,7 @@ footer a:hover {
       <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Healthcare clinic printing Patna — prescription pads labels uniforms" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+    <div class="ind-grid">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏷️</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Patient File Labels</div><div style="font-size:12px;color:#64748b">Barcode, waterproof, OPD/IPD. Raja Bazar clinic spec.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹2.50/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📋</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Prescription Pads</div><div style="font-size:12px;color:#64748b">Doctor letterhead, 50-sheet NCR pads, hospital logo.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹499/pad</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🪧</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Clinic Signboards</div><div style="font-size:12px;color:#64748b">Acrylic, LED glow, flex. IGIMS, Boring Road, Kankarbagh.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹1,499</span></div></div>
@@ -1888,7 +2134,7 @@ footer a:hover {
       <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Hotel hospitality printing Patna — uniforms menus stationery" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+    <div class="ind-grid">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🍽</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Menu Cards</div><div style="font-size:12px;color:#64748b">Laminated, spiral-bound, QR-linked digital menus.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹99/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">👔</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Hotel Uniforms</div><div style="font-size:12px;color:#64748b">Front desk, housekeeping, F&B. Logo embroidery.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹499/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏷️</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Key Card Holders</div><div style="font-size:12px;color:#64748b">Custom printed key envelopes & card holders.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹8/pc</span></div></div>
@@ -1902,7 +2148,7 @@ footer a:hover {
       <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Startup office branding printing Patna — visiting cards materials" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+    <div class="ind-grid">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🃏</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Founding Team Cards</div><div style="font-size:12px;color:#64748b">Premium velvet, spot UV, raised ink. 100 cards set.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹499/set</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📋</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Pitch Decks Printed</div><div style="font-size:12px;color:#64748b">A4 coil-bound, hard cover, gloss for investor meets.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹299/copy</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🪟</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Office Branding</div><div style="font-size:12px;color:#64748b">Window vinyls, wall murals, office signage.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹1,999</span></div></div>
@@ -1916,7 +2162,7 @@ footer a:hover {
       <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Pharma medical printing Patna Bihar — labels cartons pens" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+    <div class="ind-grid">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏷️</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Medicine Labels</div><div style="font-size:12px;color:#64748b">Foil-laminated, tamper-evident, CDSCO compliant.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹1.50/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🪧</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">MR Kit Standees</div><div style="font-size:12px;color:#64748b">Roll-up banners, X-stands for medical rep campaigns.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹999</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📦</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Mono Cartons</div><div style="font-size:12px;color:#64748b">Custom printed medicine boxes, FSSAI, batch printing.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹8/box</span></div></div>
@@ -1930,7 +2176,7 @@ footer a:hover {
       <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Real estate billboard printing Patna — hoardings site boards" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+    <div class="ind-grid">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🏗</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Site Hoardings</div><div style="font-size:12px;color:#64748b">24×12 ft, 40×20 ft. Bailey Road, Boring Road, Kankar.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹12/sqft</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📋</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Project Brochures</div><div style="font-size:12px;color:#64748b">A4/A3 property brochures, spiral-bound, UV gloss.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹49/copy</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🃏</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Agent Cards</div><div style="font-size:12px;color:#64748b">Premium matte, QR portfolio cards. 500 pack.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹819</span></div></div>
@@ -1944,7 +2190,7 @@ footer a:hover {
       <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Event printing Patna — standees banners step repeat backdrop" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+    <div class="ind-grid">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🎪</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Stage Backdrops</div><div style="font-size:12px;color:#64748b">Step-and-repeat, gate arches, venue flex.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹12/sqft</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🎟</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Event Tickets</div><div style="font-size:12px;color:#64748b">Numbered, perforated, barcode event tickets.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹4/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📦</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Gift Hamper Boxes</div><div style="font-size:12px;color:#64748b">Custom branded boxes for Diwali & corporate events.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹49/box</span></div></div>
@@ -1958,7 +2204,7 @@ footer a:hover {
       <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=300&fit=crop&q=75&auto=format" srcset="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=300&fit=crop&q=75&auto=format 1x, https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=300&fit=crop&q=60&auto=format 2x" alt="Restaurant menu printing Patna — menu cards packaging uniforms" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.1) 60%,transparent 100%)"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+    <div class="ind-grid">
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">🍽</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Menu Cards</div><div style="font-size:12px;color:#64748b">Laminated A4/A5, QR menus, spiral flip cards.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹79/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">📦</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Food Packaging</div><div style="font-size:12px;color:#64748b">Custom boxes, bags, parcel stickers, FSSAI printed.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹8/pc</span></div></div>
         <div class="card" style="padding:20px"><div style="font-size:22px;margin-bottom:10px">👕</div><div class="ls" style="font-weight:800;font-size:13px;margin-bottom:6px">Staff Uniforms</div><div style="font-size:12px;color:#64748b">Aprons, chef coats, waiter shirts with logo.</div><div style="margin-top:10px"><span class="badge badge-blue">From ₹299/pc</span></div></div>
@@ -2486,6 +2732,22 @@ function showInd(tab,id){
 }
 // Init first tab
 const firstPanel=document.querySelector('.ind-panel');
+
+// ── Industry banner labels — inject icon+name onto each banner image ──────────
+(function(){
+  document.querySelectorAll('#ind-tabs .ind-tab').forEach(t=>{
+    const m=(t.getAttribute('onclick')||'').match(/showInd\(this,'([^']+)'\)/);
+    if(!m) return;
+    const panel=document.getElementById(m[1]);
+    if(!panel) return;
+    const banner=panel.querySelector('[style*="height:120px"]');
+    if(!banner) return;
+    const label=document.createElement('div');
+    label.style.cssText='position:absolute;left:20px;bottom:0;top:0;display:flex;flex-direction:column;justify-content:center;z-index:2;font-family:\'Plus Jakarta Sans\',sans-serif;pointer-events:none';
+    label.innerHTML='<div style="font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:3px">Industry Focus</div><div style="font-size:19px;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.3)">'+t.textContent.trim()+'</div>';
+    banner.appendChild(label);
+  });
+})();
 if(firstPanel){firstPanel.classList.add('visible');}
 
 // ── FAQ accordion ─────────────────────────────────────────────────────────────
