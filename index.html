@@ -708,6 +708,8 @@ footer a:hover {
 
 
 </style>
+<link rel="stylesheet" href="responsive.css">
+<script src="responsive.js" defer></script>
 </head>
 <body>
 
@@ -730,20 +732,20 @@ footer a:hover {
 <nav style="background:#fff;border-bottom:2px solid #E2E8F0;position:sticky;top:0;z-index:9000;box-shadow:0 2px 8px rgba(0,0,0,.06)">
   <div class="mx">
     <!-- ROW 1 — Logo + Contact -->
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #F1F5F9">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #F1F5F9" class="responsive-actions">
       <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0">
-        <div style="width:36px;height:36px;border-radius:10px;background:#0073B1;display:flex;align-items:center;justify-content:center">
+        <div style="width:36px;height:36px;border-radius:10px;background:#0073B1;display:flex;align-items:center;justify-content:center" class="responsive-actions">
           <svg viewBox="0 0 64 64" fill="none" style="width:22px;height:22px"><path d="M14 32C14 19 26 11 38 14L50 18L39 25L46 40C43 51 28 54 17 46Z" fill="white"/><circle cx="50" cy="18" r="6" fill="#C9A84C"/></svg>
         </div>
         <div><div class="ls" style="font-weight:900;font-size:16px;color:#0A1628;line-height:1">KOONAFA</div><div style="font-size:7px;color:#0073B1;letter-spacing:.1em;font-weight:700">PRINT STUDIO</div></div>
       </a>
-      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0" class="responsive-actions">
         <a href="tel:+919172712982" style="padding:8px 14px;background:rgba(0,115,177,.08);color:#0073B1;border-radius:8px;text-decoration:none;font-size:11px;font-weight:700">📞 +91 91727 12982</a>
         <a href="https://wa.me/919172712982?text=Hi%20Koonafa%2C%20I%20want%20to%20place%20a%20print%20order" target="_blank" style="padding:8px 14px;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-size:11px;font-weight:700">WhatsApp Order</a>
       </div>
     </div>
     <!-- ROW 2 — Nav links -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:1px;flex-wrap:wrap;position:relative;padding:3px 0">
+    <div style="display:flex;align-items:center;justify-content:center;gap:1px;flex-wrap:wrap;position:relative;padding:3px 0" class="responsive-actions">
         <a href="index.html" class="nav-link active">ALL PRODUCTS</a>
         <a href="visiting-cards.html" class="nav-link">VISITING CARDS</a>
 
@@ -755,7 +757,7 @@ footer a:hover {
             STATIONERY <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style="margin-top:1px"><path d="M1 1l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </a>
           <!-- Mega panel -->
-          <div id="stat-drop" style="display:none;position:absolute;top:100%;left:0;z-index:9999;background:#fff;border:1px solid #E2E8F0;border-top:3px solid #0073B1;box-shadow:0 16px 48px rgba(0,0,0,.13);padding:28px 32px;grid-template-columns:repeat(6,minmax(155px,1fr));gap:28px;min-width:980px;border-radius:0 0 12px 12px">
+          <div id="stat-drop" style="display:none;position:absolute;top:100%;left:0;z-index:9999;background:#fff;border:1px solid #E2E8F0;border-top:3px solid #0073B1;box-shadow:0 16px 48px rgba(0,0,0,.13);padding:28px 32px;grid-template-columns:repeat(6,minmax(155px,1fr));gap:28px;min-width:980px;border-radius:0 0 12px 12px" class="responsive-grid responsive-stats">
 
             <!-- Col 1: Custom Stationery -->
             <div>
@@ -890,16 +892,16 @@ footer a:hover {
 </nav>
 
 <!-- HERO -->
-<section style="background:linear-gradient(135deg,#0A1628 0%,#003a63 55%,#004d80 100%);padding:80px 0 72px;position:relative;overflow:hidden">
+<section class="responsive-hero" style="background:linear-gradient(135deg,#0A1628 0%,#003a63 55%,#004d80 100%);padding:80px 0 72px;position:relative;overflow:hidden">
   <div style="position:absolute;inset:0;overflow:hidden;z-index:0">
     <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=1600&h=900&fit=crop&q=60&auto=format" alt="Koonafa Print Studio Patna — premium printing press" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;opacity:0.08;mix-blend-mode:luminosity">
   </div>
   <div style="position:absolute;inset:0;opacity:.035;background-image:radial-gradient(circle at 1px 1px, #fff 1px, transparent 0);background-size:32px 32px"></div>
   <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:rgba(201,168,76,.07);filter:blur(80px)"></div>
   <div class="mx" style="position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center" class="responsive-grid responsive-columns">
       <div>
-        <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+        <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap" class="responsive-actions">
           <span style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:6px 14px;font-size:11px;color:#fff;font-weight:600">📍 Raja Bazar, Patna</span>
           <span style="display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:6px 14px;font-size:11px;color:#C9A84C;font-weight:700">Same-Day Dispatch</span>
         </div>
@@ -907,11 +909,11 @@ footer a:hover {
           PATNA'S PREMIUM<br><span class="hero-accent">PRINT & DESIGN STUDIO</span>
         </h1>
         <p style="font-size:15px;color:rgba(255,255,255,.72);line-height:1.75;max-width:460px;margin-bottom:28px">434 products across 9 categories. From ₹199 visiting cards to full hoardings — designed, printed & dispatched from Patna, Bihar.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px" class="responsive-actions">
           <a href="#categories" class="btn-gold">Explore 434 Products</a>
           <a href="https://wa.me/919172712982?text=Hi%2C%20I%20need%20a%20print%20quote" target="_blank" style="background:#25D366;color:#fff;padding:13px 28px;border-radius:10px;font-weight:700;font-size:13px;text-decoration:none;display:inline-block;transition:all .2s">💬 Get Quote in 10 Min</a>
         </div>
-        <div style="display:flex;gap:28px;flex-wrap:wrap">
+        <div style="display:flex;gap:28px;flex-wrap:wrap" class="responsive-actions">
           <div><div class="ls counter" style="font-size:30px;font-weight:900;color:#C9A84C" data-target="434" data-suffix="+">0+</div><div style="font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.04em">PRODUCTS</div></div>
           <div><div class="ls" style="font-size:30px;font-weight:900;color:#C9A84C">₹199</div><div style="font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.04em">STARTS AT</div></div>
           <div><div class="ls" style="font-size:30px;font-weight:900;color:#C9A84C">2PM</div><div style="font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.04em">CUTOFF</div></div>
@@ -1161,25 +1163,25 @@ footer a:hover {
 <!-- TRUST BAR -->
 <div style="background:#fff;border-bottom:2px solid #E2E8F0">
   <div class="mx">
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid #E2E8F0">
-      <div style="padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;align-items:center;gap:10px">
-        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid #E2E8F0" class="responsive-grid responsive-stats">
+      <div style="padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;align-items:center;gap:10px" class="responsive-actions">
+        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0" class="responsive-actions"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
         <div><div class="ls" style="font-size:12px;font-weight:800;color:#0A1628">434 Products</div><div style="font-size:11px;color:#64748b">9 categories</div></div>
       </div>
-      <div style="padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;align-items:center;gap:10px">
-        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <div style="padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;align-items:center;gap:10px" class="responsive-actions">
+        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0" class="responsive-actions"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
         <div><div class="ls" style="font-size:12px;font-weight:800;color:#0A1628">Same-Day</div><div style="font-size:11px;color:#64748b">Order before 2 PM</div></div>
       </div>
-      <div style="padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;align-items:center;gap:10px">
-        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <div style="padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;align-items:center;gap:10px" class="responsive-actions">
+        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0" class="responsive-actions"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div><div class="ls" style="font-size:12px;font-weight:800;color:#0A1628">GST Invoice</div><div style="font-size:11px;color:#64748b">B2B registered</div></div>
       </div>
-      <div style="padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;align-items:center;gap:10px">
-        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div style="padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;align-items:center;gap:10px" class="responsive-actions">
+        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0" class="responsive-actions"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div><div class="ls" style="font-size:12px;font-weight:800;color:#0A1628">Free Design</div><div style="font-size:11px;color:#64748b">Orders above ₹2K</div></div>
       </div>
-      <div style="padding:18px 20px;display:flex;align-items:center;gap:10px">
-        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div style="padding:18px 20px;display:flex;align-items:center;gap:10px" class="responsive-actions">
+        <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,115,177,.08);border:1px solid rgba(0,115,177,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0" class="responsive-actions"><svg style="width:18px;height:18px;color:#0073B1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div><div class="ls" style="font-size:12px;font-weight:800;color:#0A1628">100% Reprint</div><div style="font-size:11px;color:#64748b">Quality guarantee</div></div>
       </div>
     </div>
@@ -1192,16 +1194,16 @@ footer a:hover {
 
     <!-- ═══ EXPLORE ALL CATEGORIES — Horizontal Scroll Strip ═══ -->
     <div style="margin-bottom:56px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px" class="responsive-actions">
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:900;color:#0A1628;letter-spacing:-0.025em">Explore all categories</h2>
-        <div style="display:flex;gap:8px">
+        <div style="display:flex;gap:8px" class="responsive-actions">
           <button id="esc-prev" onclick="escScroll(-1)" style="width:36px;height:36px;border-radius:50%;border:1.5px solid #E2E8F0;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:#0A1628;transition:all .2s;flex-shrink:0" onmouseover="this.style.borderColor='#0073B1';this.style.color='#0073B1'" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#0A1628'">‹</button>
           <button id="esc-next" onclick="escScroll(1)"  style="width:36px;height:36px;border-radius:50%;border:1.5px solid #E2E8F0;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:#0A1628;transition:all .2s;flex-shrink:0" onmouseover="this.style.borderColor='#0073B1';this.style.color='#0073B1'" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#0A1628'">›</button>
         </div>
       </div>
 
       <!-- Scroll track -->
-      <div id="esc-track" style="display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:8px">
+      <div id="esc-track" style="display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:8px" class="">
         <style>
           #esc-track::-webkit-scrollbar{display:none}
           .esc-item{flex:0 0 160px;text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer}
@@ -1316,7 +1318,7 @@ footer a:hover {
     <span class="section-label">All Product Categories</span>
     <h2 class="section-title">Everything You Need to Print,<br>Right Here in Patna</h2>
     <p style="font-size:14px;color:#64748b;line-height:1.7;max-width:600px;margin-bottom:36px">From 100 visiting cards for a startup founder to city-wide billboard campaigns — Koonafa handles it all with luxury-grade quality.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px">
+    <div style="--card-min:260px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px" class="responsive-grid responsive-auto-grid">
 
       <a href="visiting-cards.html" class="cat-card">
         <div style="height:200px;overflow:hidden;position:relative;background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
@@ -1325,12 +1327,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Visiting Cards</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹199+</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">Velvet touch, spot UV, gold foil, NFC smart cards. 28 variants. 500 cards from ₹819.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">28 variants</span><span class="badge badge-gold">Same-day</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">28 variants</span><span class="badge badge-gold">Same-day</span></div>
         </div>
       </a>
 
@@ -1341,12 +1343,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Stationery</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹299+</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">Letterheads, envelopes, notepads, diaries. 45 products. Corporate bulk pricing.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">45 products</span><span class="badge badge-gold">GST Invoice</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">45 products</span><span class="badge badge-gold">GST Invoice</span></div>
         </div>
       </a>
 
@@ -1357,12 +1359,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Billboards & Signs</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹12/sqft+</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">Flex banners, vinyl wraps, LED boards, shop signs, hoardings. Bailey Road specialists.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">38 products</span><span class="badge badge-gold">Installation</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">38 products</span><span class="badge badge-gold">Installation</span></div>
         </div>
       </a>
 
@@ -1373,12 +1375,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Labels & Stickers</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹149+</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">Product labels, die-cut stickers, waterproof, QR code. FMCG & pharma spec. 52 variants.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">52 variants</span><span class="badge badge-gold">Waterproof</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">52 variants</span><span class="badge badge-gold">Waterproof</span></div>
         </div>
       </a>
 
@@ -1389,12 +1391,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Clothing & Bags</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹299+</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">T-shirts, polo shirts, corporate uniforms, tote bags. DTF & embroidery. Bulk pricing.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">DTF · Embroidery</span><span class="badge badge-gold">Min. 10 pcs</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">DTF · Embroidery</span><span class="badge badge-gold">Min. 10 pcs</span></div>
         </div>
       </a>
 
@@ -1405,12 +1407,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Mugs & Gifts</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹249+</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">Ceramic mugs, photo prints, corporate gifting, keychains. Festival & Diwali bulk orders.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">60 products</span><span class="badge badge-gold">Bulk Orders</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">60 products</span><span class="badge badge-gold">Bulk Orders</span></div>
         </div>
       </a>
 
@@ -1421,12 +1423,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Personalised Pens</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹29+/pc</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">Logo engraved pens, metal ballpoint, promotional for events, banks, hospitals. 24 models.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">24 models</span><span class="badge badge-gold">Min. 50 pcs</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">24 models</span><span class="badge badge-gold">Min. 50 pcs</span></div>
         </div>
       </a>
 
@@ -1437,12 +1439,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Packaging</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹8+/pc</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">Custom boxes, shopping bags, mailer boxes, food packaging. FSSAI compliant. Custom sizes.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">Custom sizes</span><span class="badge badge-gold">FSSAI ready</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">Custom sizes</span><span class="badge badge-gold">FSSAI ready</span></div>
         </div>
       </a>
 
@@ -1453,12 +1455,12 @@ footer a:hover {
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.35) 0%,transparent 60%)"></div>
         </div>
         <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px" class="responsive-actions">
             <div class="ls" style="font-weight:900;font-size:15px;color:#0A1628">Brochures & Flyers</div>
             <div class="ls" style="font-size:13px;font-weight:800;color:#0073B1">₹499+</div>
           </div>
           <p style="font-size:12px;color:#64748b;line-height:1.6;margin-bottom:12px">A4/A5 brochures, tri-fold flyers, catalogues, menu cards, event programs. UV gloss.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge badge-blue">UV Gloss</span><span class="badge badge-gold">Design included</span></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" class="responsive-actions"><span class="badge badge-blue">UV Gloss</span><span class="badge badge-gold">Design included</span></div>
         </div>
       </a>
 
@@ -1471,7 +1473,7 @@ footer a:hover {
      ═══════════════════════════════════════════════════════════════════ -->
 <section style="background:#fff;padding:44px 0 8px;border-top:1px solid #E2E8F0">
   <div class="mx">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="responsive-grid responsive-columns">
 
       <a href="visiting-cards.html" class="cat-card" style="position:relative;min-height:270px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#0A1628,#003a63)">
         <img src="https://images.unsplash.com/photo-1704030459032-fddf08f1cfa6?w=900&h=520&fit=crop&q=80&auto=format" alt="Visiting cards promo — 100 cards at ₹199" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5">
@@ -1489,7 +1491,7 @@ footer a:hover {
         <div style="position:relative;padding:32px;max-width:310px">
           <div class="ls" style="font-size:23px;font-weight:900;color:#fff;margin-bottom:6px">Look Professional with Custom Rainwear</div>
           <div style="font-size:13px;color:rgba(255,255,255,.78);margin-bottom:18px">Starting at ₹399</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <div style="display:flex;gap:10px;flex-wrap:wrap" class="responsive-actions">
             <span class="btn-gold" style="padding:10px 18px">Umbrellas</span>
             <span class="btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;padding:10px 18px">Raincoats</span>
           </div>
@@ -1514,9 +1516,9 @@ footer a:hover {
 <!-- OUR MOST POPULAR PRODUCTS -->
 <section class="sec" style="padding:16px 0 8px;background:#fff">
   <div class="mx">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px" class="responsive-actions">
       <h2 class="section-title" style="margin-bottom:0">Our Most Popular Products</h2>
-      <div style="display:flex;gap:8px">
+      <div style="display:flex;gap:8px" class="responsive-actions">
         <button class="prod-nav-btn" onclick="prodScroll('pp-track',-1)">‹</button>
         <button class="prod-nav-btn" onclick="prodScroll('pp-track',1)">›</button>
       </div>
@@ -1542,9 +1544,9 @@ footer a:hover {
 <!-- TRENDING -->
 <section class="sec" style="padding:24px 0 8px;background:#fff">
   <div class="mx">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px" class="responsive-actions">
       <h2 class="section-title" style="margin-bottom:0">Trending</h2>
-      <div style="display:flex;gap:8px">
+      <div style="display:flex;gap:8px" class="responsive-actions">
         <button class="prod-nav-btn" onclick="prodScroll('tr-track',-1)">‹</button>
         <button class="prod-nav-btn" onclick="prodScroll('tr-track',1)">›</button>
       </div>
@@ -1570,9 +1572,9 @@ footer a:hover {
 <!-- LABELS, STICKERS AND PACKAGING -->
 <section class="sec" style="padding:24px 0 8px;background:#fff">
   <div class="mx">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px" class="responsive-actions">
       <h2 class="section-title" style="margin-bottom:0">Labels, Stickers and Packaging</h2>
-      <div style="display:flex;gap:8px">
+      <div style="display:flex;gap:8px" class="responsive-actions">
         <button class="prod-nav-btn" onclick="prodScroll('lb-track',-1)">‹</button>
         <button class="prod-nav-btn" onclick="prodScroll('lb-track',1)">›</button>
       </div>
@@ -1598,7 +1600,7 @@ footer a:hover {
 <!-- SECONDARY PROMO BANNERS -->
 <section style="background:#fff;padding:24px 0 8px">
   <div class="mx">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="responsive-grid responsive-columns">
 
       <a href="mugs-gifts.html?p=photo-albums" class="cat-card" style="position:relative;min-height:230px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#0A1628,#5a3a12)">
         <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=900&h=460&fit=crop&q=80&auto=format" alt="Wedding albums and photo gifting promo" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4">
@@ -1606,7 +1608,7 @@ footer a:hover {
         <div style="position:relative;padding:28px;max-width:290px">
           <div class="ls" style="font-size:19px;font-weight:900;color:#fff;margin-bottom:6px">Preserve Your Cherished Moments</div>
           <div style="font-size:12px;color:rgba(255,255,255,.75);margin-bottom:14px">Photo albums starting at ₹1,499</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <div style="display:flex;gap:8px;flex-wrap:wrap" class="responsive-actions">
             <span class="btn-gold" style="padding:9px 16px;font-size:12px">Albums</span>
             <span class="btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;padding:9px 16px;font-size:12px">Mugs</span>
           </div>
@@ -1619,7 +1621,7 @@ footer a:hover {
         <div style="position:relative;padding:28px;max-width:290px">
           <div class="ls" style="font-size:19px;font-weight:900;color:#fff;margin-bottom:6px">Wear Your Brand with Pride</div>
           <div style="font-size:12px;color:rgba(255,255,255,.75);margin-bottom:14px">Starting at ₹349</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <div style="display:flex;gap:8px;flex-wrap:wrap" class="responsive-actions">
             <span class="btn-gold" style="padding:9px 16px;font-size:12px">Polo T-Shirts</span>
             <span class="btn-outline" style="border-color:rgba(255,255,255,.4);color:#fff;padding:9px 16px;font-size:12px">Caps</span>
           </div>
@@ -1633,9 +1635,9 @@ footer a:hover {
 <!-- EXPLORE MORE -->
 <section class="sec" style="padding:24px 0 16px;background:#fff">
   <div class="mx">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px" class="responsive-actions">
       <h2 class="section-title" style="margin-bottom:0">Explore More</h2>
-      <div style="display:flex;gap:8px">
+      <div style="display:flex;gap:8px" class="responsive-actions">
         <button class="prod-nav-btn" onclick="prodScroll('em-track',-1)">‹</button>
         <button class="prod-nav-btn" onclick="prodScroll('em-track',1)">›</button>
       </div>
@@ -1671,12 +1673,12 @@ function prodScroll(id, dir){
   <div class="mx">
 
     <!-- Section header -->
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px" class="responsive-actions">
       <div>
         <span class="section-label">Just Landed</span>
         <h2 class="section-title" style="margin-bottom:0">New Arrivals</h2>
       </div>
-      <div style="display:flex;align-items:center;gap:10px">
+      <div style="display:flex;align-items:center;gap:10px" class="responsive-actions">
         <!-- Page indicator -->
         <span id="na-indicator" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:.04em">1 / 3</span>
         <!-- Prev / Next arrows -->
@@ -1686,7 +1688,7 @@ function prodScroll(id, dir){
     </div>
 
     <!-- Carousel track -->
-    <div id="na-track" style="display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x mandatory">
+    <div id="na-track" style="display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x mandatory" class="">
 
       <style>
         #na-track::-webkit-scrollbar{display:none}
@@ -1984,7 +1986,7 @@ function prodScroll(id, dir){
     </div><!-- /na-track -->
 
     <!-- Dot pagination -->
-    <div id="na-dots" style="display:flex;justify-content:center;gap:8px;margin-top:20px">
+    <div id="na-dots" style="display:flex;justify-content:center;gap:8px;margin-top:20px" class="responsive-actions">
       <button class="na-dot active" onclick="naGoTo(0)"></button>
       <button class="na-dot" onclick="naGoTo(1)"></button>
       <button class="na-dot" onclick="naGoTo(2)"></button>
@@ -2102,11 +2104,11 @@ function prodScroll(id, dir){
     <span class="section-label">Industry Solutions</span>
     <h2 class="section-title">We Print for Every Business in Bihar</h2>
     <p style="font-size:14px;color:#64748b;max-width:560px;line-height:1.7;margin-bottom:10px">From Raja Bazar clinics to Bailey Road real estate, Koonafa delivers industry-specific print solutions at scale.</p>
-    <div style="display:flex;gap:6px;align-items:center;margin-bottom:24px">
+    <div style="display:flex;gap:6px;align-items:center;margin-bottom:24px" class="responsive-actions">
       <span style="width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block"></span>
       <span style="font-size:11.5px;font-weight:700;color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif">7 industries covered · 6 tailored products per sector · updated for 2026</span>
     </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px" id="ind-tabs">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px" id="ind-tabs" class="responsive-actions">
       <button class="ind-tab active" onclick="showInd(this,'ind-healthcare')">🏥 Healthcare</button>
       <button class="ind-tab" onclick="showInd(this,'ind-hospitality')">🏨 Hospitality</button>
       <button class="ind-tab" onclick="showInd(this,'ind-startup')">🚀 Startups</button>
@@ -2219,7 +2221,7 @@ function prodScroll(id, dir){
 <!-- PRICE SNAPSHOT + TESTIMONIALS -->
 <section class="sec" style="background:#fff;border-top:1px solid #E2E8F0">
   <div class="mx">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="responsive-grid responsive-columns">
       <div>
         <span class="section-label">Quick Price Guide</span>
         <h2 class="section-title">Transparent Pricing.<br>No Hidden Costs.</h2>
@@ -2242,28 +2244,28 @@ function prodScroll(id, dir){
       <div>
         <span class="section-label">Customer Reviews</span>
         <h2 class="section-title">Patna Businesses Trust Koonafa</h2>
-        <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px">
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px" class="">
           <div class="card" style="padding:24px">
             <div style="color:#F59E0B;letter-spacing:2px;font-size:13px;margin-bottom:10px">★★★★★</div>
             <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Got 500 visiting cards with spot UV — same day! Quality is way better than Kankar Bagh local shops. Will reorder."</p>
-            <div style="display:flex;align-items:center;gap:10px">
-              <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#0073B1,#003a63);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px">R</div>
+            <div style="display:flex;align-items:center;gap:10px" class="responsive-actions">
+              <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#0073B1,#003a63);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px" class="responsive-actions">R</div>
               <div><div style="font-size:13px;font-weight:700;color:#0A1628">Rohit Sinha</div><div style="font-size:11px;color:#64748b">Startup Founder, Bailey Road</div></div>
             </div>
           </div>
           <div class="card" style="padding:24px">
             <div style="color:#F59E0B;letter-spacing:2px;font-size:13px;margin-bottom:10px">★★★★★</div>
             <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Ordered clinic signboard and prescription pads. Very professional, design done properly, delivery on time. 100% recommended."</p>
-            <div style="display:flex;align-items:center;gap:10px">
-              <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#059669,#065f46);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px">D</div>
+            <div style="display:flex;align-items:center;gap:10px" class="responsive-actions">
+              <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#059669,#065f46);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px" class="responsive-actions">D</div>
               <div><div style="font-size:13px;font-weight:700;color:#0A1628">Dr. Amisha Kumari</div><div style="font-size:11px;color:#64748b">Gynaecologist, Raja Bazar, Patna</div></div>
             </div>
           </div>
           <div class="card" style="padding:24px">
             <div style="color:#F59E0B;letter-spacing:2px;font-size:13px;margin-bottom:10px">★★★★★</div>
             <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Bulk order of 200 staff uniforms. Embroidery quality excellent. Price competitive, GST bill provided. Great experience."</p>
-            <div style="display:flex;align-items:center;gap:10px">
-              <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#C9A84C,#8B6914);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px">P</div>
+            <div style="display:flex;align-items:center;gap:10px" class="responsive-actions">
+              <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#C9A84C,#8B6914);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px" class="responsive-actions">P</div>
               <div><div style="font-size:13px;font-weight:700;color:#0A1628">Praveen Gupta</div><div style="font-size:11px;color:#64748b">Hotel Manager, Patna Junction</div></div>
             </div>
           </div>
@@ -2277,17 +2279,17 @@ function prodScroll(id, dir){
       <div class="review-card fade-up fade-up-d2">
         <div style="color:#C9A84C;font-size:14px;margin-bottom:10px">★★★★★</div>
         <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Got our hotel's 200 staff uniforms done — front desk, housekeeping, F&B. Embroidery quality superb. Delivered on time before Diwali season."</p>
-        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Rohit Sinha startup founder Bailey Road Patna" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Sandeep Verma</div><div style="font-size:10px;color:#64748b">Hotel GM, Patna Junction Area</div></div></div>
+        <div style="display:flex;align-items:center;gap:10px" class="responsive-actions"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Rohit Sinha startup founder Bailey Road Patna" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Sandeep Verma</div><div style="font-size:10px;color:#64748b">Hotel GM, Patna Junction Area</div></div></div>
       </div>
       <div class="review-card fade-up fade-up-d3">
         <div style="color:#C9A84C;font-size:14px;margin-bottom:10px">★★★★★</div>
         <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Ordered 5,000 BOPP waterproof labels for our pickle jars. Perfect FSSAI-safe print, barcode scan works perfectly. Reordering every month now."</p>
-        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Dr Amisha Kumari gynaecologist Raja Bazar Patna" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Meena Devi</div><div style="font-size:10px;color:#64748b">FMCG Founder, Kankarbagh</div></div></div>
+        <div style="display:flex;align-items:center;gap:10px" class="responsive-actions"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Dr Amisha Kumari gynaecologist Raja Bazar Patna" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Meena Devi</div><div style="font-size:10px;color:#64748b">FMCG Founder, Kankarbagh</div></div></div>
       </div>
       <div class="review-card fade-up fade-up-d4">
         <div style="color:#C9A84C;font-size:14px;margin-bottom:10px">★★★★★</div>
         <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:14px">"Bailey Road billboard for our real estate project — 40×20 ft hoarding. Frame, print, installation all handled. Excellent quality, great visibility."</p>
-        <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Praveen Gupta hotel manager Patna Junction" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Arvind Singh</div><div style="font-size:10px;color:#64748b">Real Estate Developer, Bailey Road</div></div></div>
+        <div style="display:flex;align-items:center;gap:10px" class="responsive-actions"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&q=80&auto=format&face" alt="Praveen Gupta hotel manager Patna Junction" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div><div style="font-size:12px;font-weight:700;color:#0A1628">Arvind Singh</div><div style="font-size:10px;color:#64748b">Real Estate Developer, Bailey Road</div></div></div>
       </div>
 <!-- LOCALITIES -->
 <section class="sec" style="background:#F8FAFC;border-top:1px solid #E2E8F0">
@@ -2295,7 +2297,7 @@ function prodScroll(id, dir){
     <span class="section-label">Service Areas – Patna & Bihar</span>
     <h2 class="section-title">We Deliver Across Bihar & Pan India</h2>
     <p style="font-size:14px;color:#64748b;max-width:520px;line-height:1.7;margin-bottom:28px">Same-day pickup from Raja Bazar studio. Express delivery across Patna. Pan-Bihar & pan-India shipping available.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">
+    <div style="--card-min:190px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px" class="responsive-grid responsive-auto-grid">
       <a href="#" class="loc-tag">📍 Raja Bazar</a>
       <a href="#" class="loc-tag">📍 Bailey Road</a>
       <a href="#" class="loc-tag">📍 Boring Road</a>
@@ -2344,7 +2346,7 @@ function prodScroll(id, dir){
 <!-- KEYWORD CONTENT SECTION -->
 <section style="background:#fff;border-top:1px solid #E2E8F0;padding:48px 0">
   <div style="max-width:1400px;margin:0 auto;padding:0 24px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:32px">
+    <div style="--card-min:260px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:32px" class="responsive-grid responsive-auto-grid">
       <div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;color:#0A1628;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Best Print Studio in Patna</h3>
         <p style="font-size:12.5px;color:#64748b;line-height:1.75">Koonafa Print Studio is Patna's most trusted commercial printing press, located at Raja Bazar. We offer <strong>same-day printing in Patna</strong> — order before 2 PM and your job ships same evening. From visiting cards to billboards, we are the <strong>printing services in Patna</strong> that businesses rely on.</p>
@@ -2370,7 +2372,7 @@ function prodScroll(id, dir){
     <div style="display:inline-block;padding:5px 18px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);border-radius:20px;font-size:11px;font-weight:800;color:#C9A84C;letter-spacing:.1em;font-family:'Plus Jakarta Sans', sans-serif;margin-bottom:20px">PATNA'S PREMIUM PRINT & DESIGN STUDIO</div>
     <h2 class="ls" style="font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;margin-bottom:14px">Ready to Start Printing?</h2>
     <p style="font-size:15px;color:rgba(255,255,255,.65);max-width:440px;margin:0 auto 30px;line-height:1.7">WhatsApp us your requirements and get a quote within 10 minutes. No forms. No waiting.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" class="responsive-actions">
       <a href="https://wa.me/919172712982?text=Hi%20Koonafa%2C%20I%20want%20to%20place%20a%20print%20order" target="_blank" class="btn-gold" style="font-size:14px;padding:14px 32px">💬 WhatsApp Us Now</a>
       <a href="tel:+919172712982" class="btn-outline" style="border-color:rgba(255,255,255,.35);color:#fff;font-size:14px;padding:14px 32px">📞 Call +91 91727 12982</a>
     </div>
@@ -2381,10 +2383,10 @@ function prodScroll(id, dir){
 <!-- FOOTER -->
 <footer style="background:#0D1117;color:#fff">
   <div class="mx" style="padding:56px 24px 36px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px;margin-bottom:40px">
+    <div style="--card-min:170px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px;margin-bottom:40px" class="responsive-grid responsive-auto-grid">
       <div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <div style="width:34px;height:34px;border-radius:9px;background:#0073B1;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 64 64" fill="none" style="width:20px;height:20px"><path d="M14 32C14 19 26 11 38 14L50 18L39 25L46 40C43 51 28 54 17 46Z" fill="white"/><circle cx="50" cy="18" r="6" fill="#C9A84C"/></svg></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px" class="responsive-actions">
+          <div style="width:34px;height:34px;border-radius:9px;background:#0073B1;display:flex;align-items:center;justify-content:center" class="responsive-actions"><svg viewBox="0 0 64 64" fill="none" style="width:20px;height:20px"><path d="M14 32C14 19 26 11 38 14L50 18L39 25L46 40C43 51 28 54 17 46Z" fill="white"/><circle cx="50" cy="18" r="6" fill="#C9A84C"/></svg></div>
           <div><div class="ls" style="font-weight:900;font-size:15px;color:#fff">KOONAFA</div><div style="font-size:7px;color:#0073B1;letter-spacing:.1em;font-weight:700">PRINT STUDIO</div></div>
         </div>
         <p style="font-size:12px;color:#94a3b8;line-height:1.75;margin-bottom:14px;max-width:240px">KoonafaPrint has helped business owners, entrepreneurs and individuals create their identities with custom designs and professional marketing.</p>
@@ -2435,9 +2437,9 @@ function prodScroll(id, dir){
         </ul>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center">
+    <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center" class="responsive-actions">
       <div style="font-size:11px;color:#475569">© 2025 Koonafa Print Studio, Patna, Bihar. A Koonafa Group Brand.</div>
-      <div style="display:flex;gap:6px">
+      <div style="display:flex;gap:6px" class="responsive-actions">
         <span style="font-size:9px;font-weight:800;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.06);color:#64748b;font-family:'Plus Jakarta Sans', sans-serif">UPI</span>
         <span style="font-size:9px;font-weight:800;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.06);color:#64748b;font-family:'Plus Jakarta Sans', sans-serif">CARD</span>
         <span style="font-size:9px;font-weight:800;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.06);color:#64748b;font-family:'Plus Jakarta Sans', sans-serif">NET BANKING</span>
@@ -3215,3 +3217,4 @@ document.querySelectorAll('img[loading="lazy"]').forEach(img=>{
 </script>
 </body>
 </html>
+

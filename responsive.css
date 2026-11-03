@@ -1,0 +1,60 @@
+/* Shared mobile layout, loaded after each page's original styles. */
+img, video, iframe { max-width: 100%; }
+.responsive-grid > * { min-width: 0; }
+.responsive-auto-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min, 260px)), 1fr)) !important; }
+.mobile-menu-toggle { display: none; }
+:focus-visible { outline: 3px solid #C9A84C; outline-offset: 3px; }
+@media (max-width: 1100px) {
+  nav.site-nav.nav-shell { display: flex; flex-wrap: wrap; padding: 12px 16px; gap: 8px; }
+  .site-nav .nav-links { padding: 0; margin: 0; list-style: none; }
+  .site-nav .nav-links a { display: flex; min-height: 44px; align-items: center; padding: 8px; }
+  .site-nav .nav-cta { min-height: 44px; }
+  .site-nav .nav-shell { display: flex !important; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-top: 8px; padding-bottom: 8px; }
+  .site-nav .nav-brand-row { display: contents !important; }
+  .site-nav .nav-brand-group { display: contents !important; }
+  .site-nav .nav-brand-group > div:not(.mobile-nav-links) { display: none !important; }
+  .site-nav .nav-contacts { display: flex !important; flex-wrap: wrap; justify-content: center; width: 100%; order: 3; }
+  .site-nav .nav-contacts a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; flex: 1; }
+  .site-nav .mobile-nav-links { width: 100%; order: 4; justify-content: flex-start !important; max-height: 55dvh; overflow-y: auto; }
+  .site-nav.menu-ready .mobile-nav-links { display: none !important; }
+  .site-nav.menu-ready.menu-open .mobile-nav-links { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px !important; }
+  .site-nav .nav-link { display: flex !important; align-items: center; min-height: 44px; padding: 10px 12px !important; font-size: 11px; white-space: normal; }
+  .site-nav .nav-mega-wrap > div { display: none !important; }
+  .site-nav .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 72px; min-height: 44px; padding: 8px 12px; background: #0073B1; color: #fff; border: 0; border-radius: 8px; font: 600 14px Inter, sans-serif; cursor: pointer; }
+}
+@media (max-width: 800px) {
+  .hero, .hero-right, .category-strips, .why-section, .why-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .hero-left, .why-section { padding: 32px 16px !important; }
+  .breadcrumb, .section-header, .filter-bar, .product-grid, .category-strips, .featured-banner-content { padding-left: 16px !important; padding-right: 16px !important; }
+  .product-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+  .stats-bar, .filter-bar, .footer-bar, .footer-links, .section-header, .hero-btns { flex-wrap: wrap; gap: 12px; }
+  .stats-bar .stat { flex: 1 1 40%; padding: 16px 8px; }
+  .inspo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-bar { padding: 24px 16px; }
+  .mx { padding-left: 16px !important; padding-right: 16px !important; }
+  .responsive-columns { grid-template-columns: minmax(0, 1fr) !important; gap: 24px !important; }
+  .responsive-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
+  .responsive-hero { padding-top: 40px !important; padding-bottom: 40px !important; min-height: auto !important; }
+  h1 { font-size: clamp(30px, 7vw, 44px) !important; overflow-wrap: break-word; }
+  h2 { overflow-wrap: break-word; }
+  input:not([type=checkbox]):not([type=radio]), select, textarea { max-width: 100%; min-height: 44px; font-size: 16px !important; }
+  button, a[class*="btn"] { touch-action: manipulation; }
+  .qty-btn { min-width: 44px; min-height: 44px; }
+  .responsive-actions { flex-wrap: wrap !important; }
+  .reviews-grid { grid-template-columns: minmax(0, 1fr); }
+  .responsive-table { overflow-x: auto; max-width: 100%; }
+  .responsive-table table { min-width: 500px; }
+  .wa-float, .wa { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+  #wa-widget-wrap { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); }
+  #wa-popup { max-width: calc(100vw - 24px); max-height: 65dvh; overflow-y: auto; }
+  .bot-chat, #bot-chat { max-width: calc(100vw - 24px); }
+  [id] { scroll-margin-top: 140px; }
+}
+@media (max-width: 380px) {
+  .hpc-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .site-nav .nav-link { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .ticker-inner, .wa-float::before { animation: none !important; }
+}
